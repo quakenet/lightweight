@@ -1,0 +1,1416 @@
+
+2005-01-08  froo  <froo@quakenet.org>
+
+	* clientcommands/cleanupdb.c:
+	changed behaviour for deleting ownerless channels to only delete channel if there's
+	no owner, no master or no ops present on chanlev, ie to make REQUESTOWNER more
+	useful and fair.
+
+2004-10-14  froo  <froo@quakenet.org>
+
+	* COMPILATION: - update requirements for make
+
+2004-09-21  froo  <froo@quakenet.org>
+
+	* Makefile: - Makefile: FreeBSD support by ben@quakenet.org
+
+2004-09-20  froo  <froo@quakenet.org>
+
+	* dblist.c:
+	- PrintChanlev() added hint on max channels per user. (as suggested by ben@quakenet.org)
+	- PrintUInfoRestricted(), PrintUInfo() added hint on max users per channel. (as suggested by ben@quakenet.org)
+
+2004-08-30  froo  <froo@quakenet.org>
+
+	* clientcommands/addchan.c: notify msguser if bot can't join channel.
+
+2004-08-29  Jaster  <jaster@quakenet.org>
+
+	* clientcommands/addchan.c:
+	- addchan, supports an additional third argument, "user to notify". utilized by requestl module in O.
+
+2004-08-29  froo  <froo@quakenet.org>
+
+	* clientcommands/addchan.c:
+	- initialize struct account *msguseracct to NULL
+
+	* channels.c, channels.h, channelsdb.c,
+	clientcommands/cleanupdb.c, clientcommands/die.c, clientcommands/part.c, clientcommands/suspend.c:
+	- PartChannel() takes reason for parting as an extra argument
+	- cleanupdb, now notfies channel users at PART why it's leaving the channel, ie: no owner/empty/expired
+	  as suggested by netzi.
+	- die, random diatribe replaced by quit reason.
+
+2004-08-18  Jaster  <jaster@quakenet.org>
+
+	* clientcommands/listlevel.c, help/listlevel.oper:
+	- listtlevel, list all users with a specified authlevel
+
+2004-08-18  froo  <froo@quakenet.org>
+
+	* clientcommands/cleanupdb.c, clientcommands/help.c,
+	clientcommands/setenable.c, servercommands/privmsg.c,
+	globalexterns.h, lightweight.c, lightweight.h,
+	help/setenable.oper, help/cleanupdb.oper, help/listlevel.oper:
+	- setenable, enable or disable user commands (defaults to on)
+	- cleanupdb, added a verbose option (-v) for those who really wan't to see
+	  30k channels being removed :)
+
+2004-06-21  skaterx  <skaterx@quakenet.org>
+
+	* servercommands/privmsg.c:
+	slap me if you feel like it, my fault: requestowner is a command available to everyone, not just to opers
+
+	* clientcommands/help.c: -Wall cleanup (forgot to include ctype.h)
+
+2004-06-12  skaterx  <skaterx@quakenet.org>
+
+	* clientcommands/requestowner.c, dblist.c:
+	maybe I should committ the right files next time, typos fixed
+
+	* clientcommands/help.c, clientcommands/requestowner.c, dblist.c, help/requestowner.oper, help/requestowner.user, lightweight.h, servercommands/privmsg.c:
+	requestowner command added,
+	chanlev stats added,
+	minor fix in "help" command (capitalization of parameter)
+
+2004-01-11  froo  <froo@quakenet.org>
+
+	* clientcommands/status.c:
+	remove embedded TAB (^I) from /proc/<PID>/status output, nicely spotted
+	and fixed by netzi.
+
+	* clientcommands/chanstat.c:
+	fixed typo, as pointed out by netzi.
+
+2003-11-29  splidge  <splidge@quakenet.org>
+
+	* clientcommands/sendchanlev.c, lightweight.h, servercommands/privmsg.c:
+	Added SENDCHANLEV command
+
+2003-10-13  froo  <froo@quakenet.org>
+
+	* clientcommands/suspendlist.c:
+	added an end of line separator w. match counter. (as requested by HellMagic)
+
+2003-10-06  splidge  <splidge@quakenet.org>
+
+	* clientcommands/chanstat.c:
+	Changed to not show who suspended channels to non-opers.
+
+2003-09-08  zarjazz  <zarjazz@quakenet.org>
+
+	* Makefile, accountsdb.c, channels.c, channelsdb.c, channelsdb.h,
+	dblist.c, general.c, lightweight.h, parseline.c, restoredbfromdisk.c,
+	savedbtodisk.c, sendinittoserver.c,
+	clientcommands/accountstats.c, clientcommands/addchan.c,
+	clientcommands/changelev.c, clientcommands/chanlev.c,
+	clientcommands/channellist.c, clientcommands/chanstat.c,
+	clientcommands/cleanupdb.c, clientcommands/cleanupdb2.c,
+	clientcommands/clearchan.c, clientcommands/fish.c,
+	clientcommands/grep.c, clientcommands/help.c,
+	clientcommands/neigh.c, clientcommands/raw.c,
+	clientcommands/status.c, clientcommands/suspend.c,
+	clientcommands/suspendlist.c, clientcommands/version.c,
+	servercommands/join.c, servercommands/mode.c,
+	servercommands/nick.c, servercommands/server.c:
+	-Wall cleanup
+
+2003-05-06  froo  <froo@quakenet.org>
+
+	* clientcommands/cleanupdb2.c: cleanup; removed unused variables.
+
+2003-04-26  froo  <froo@quakenet.org>
+
+	* clientcommands/deopall.c:
+	fixed silly ifdef bug, buf was undeclared since L wen't .11
+
+2003-04-15  splidge  <splidge@quakenet.org>
+
+	* accounts.0: Removed file from repository
+
+	* lightweight.h: Added HAVE_CLEARMODE define
+
+	* clientcommands/unbanall.c:
+	Fixed to use CLEARMODE
+
+	* clientcommands/deopall.c:
+	Fixed clearmode code
+
+	* clientcommands/clearchan.c:
+	Now clears +r mode
+
+	* parseline.c:
+	Bugfix, support for +h usermode on NICK message
+
+	* sendinittoserver.c:
+	Added +s flag to indicate service
+
+2003-01-21  froo  <froo@quakenet.org>
+
+	* clientcommands/grep.c:
+	fixed format string bug found by BF, sloppy me :p
+
+2003-01-12  splidge  <splidge@quakenet.org>
+
+	* clientcommands/neigh.c: Erm, yes well...
+
+	* clientcommands/fish.c, clientcommands/neigh.c:
+	Made a bit safer (removed buffer overflow).
+
+	* general.c:
+	Made NoticeToUser() a bit safer (always gets \r\n on the end of the
+	command).
+
+2002-11-22  froo  <froo@quakenet.org>
+
+	* clientcommands/grep.c, help/find.oper, servercommands/privmsg.c:
+	new command "find", an easy to use frontend to "grep".
+
+2002-11-06  froo  <froo@quakenet.org>
+
+	* clientcommands/part.c:
+	fixed preprocessor directive bug.
+
+2002-11-02  splidge  <splidge@quakenet.org>
+
+	* clientcommands/cleanupdb2.c, lightweight.h, servercommands/privmsg.c:
+	Added "cleanupdb2" command to request an expire check from another service
+	for each channel.
+
+2002-10-18  bigfoot  <bigfoot@quakenet.org>
+
+	* channelsdb.c, channelsdb.h, clientcommands/addchan.c, restoredbfromdisk.c:
+	Added some errormessages to addchan
+
+	* Makefile: minor update
+
+2002-09-19  zarjazz  <zarjazz@quakenet.org>
+
+	* COMPILATION: Tell newbies about stuff
+
+2002-08-11  splidge  <splidge@quakenet.org>
+
+	* dblist.c:
+	Fixed bug using strncmp instead of pointer comparison for the "list one user
+	on one channel" chanlev mode.
+
+2002-08-08  splidge  <splidge@quakenet.org>
+
+	* channels.c:
+	Changed to clear the timestamp on part.
+
+2002-08-08  bigfoot  <bigfoot@quakenet.org>
+
+	* clientcommands/chanstat.c, servercommands/privmsg.c:
+	allowed chanstat to be used by authlevel 10 and up
+
+2002-08-04  froo  <froo@quakenet.org>
+
+	* servercommands/join.c:
+	fixed coding style, nuked TAB's et al
+
+2002-08-04  splidge  <splidge@quakenet.org>
+
+	* servercommands/join.c:
+	Fixed the code to kick users to use numeric instead of nick.
+
+	* channels.c:
+	Fixed server protocol message sent by KickUser() to include the :
+
+2002-08-04  froo  <froo@quakenet.org>
+
+	* clientcommands/adduser.c, clientcommands/removeuser.c:
+	added authname to the logging.
+
+2002-08-03  froo  <froo@quakenet.org>
+
+	* clientcommands/part.c, lightweight.h, servercommands/privmsg.c:
+	added part command to enable newserv to tell blind L to part
+	empty channels.
+
+2002-07-26  froo  <froo@quakenet.org>
+
+	* clientcommands/op.c, clientcommands/voice.c:
+	update lastused timestamp on channel.
+
+2002-07-24  bigfoot  <bigfoot@quakenet.org>
+
+	* clientcommands/accountstats.c:
+	fixed nice little off by one error
+
+	* clientcommands/accountstats.c, lightweight.h, servercommands/privmsg.c:
+	Added accountstat command to be able to see if CHANNELSPERUSER should be raised
+
+2002-07-22  bigfoot  <bigfoot@quakenet.org>
+
+	* help/invite.oper, help/invite.user:
+	changed functionality in invite, updating helpfile
+
+	* clientcommands/help.c:
+	Added set- and clearinvite to commandlist
+
+	* channels.c channelsdb.h channels.h lightweight.h parseline.c
+	clientcommands/chanstat.c
+	clientcommands/clearinvite.c
+	clientcommands/invite.c
+	clientcommands/setinvite.c
+	help/clearinvite.oper
+	help/clearinvite.user
+	help/setinvite.oper
+	help/setinvite.user
+	servercommands/join.c
+	servercommands/mode.c
+	servercommands/privmsg.c:
+	Added setinvite, clearinvite and functionality to let L force a channel to be inviteonly (+i)
+
+2002-07-10  splidge  <splidge@quakenet.org>
+
+	* clientcommands/chanlev.c:
+	Changed to work correctly with trailing spaces.
+
+2002-07-07  froo  <froo@quakenet.org>
+
+	* clientcommands/grep.c:
+	free() mem used by pcre.
+
+2002-07-02  zarjazz <zarjazz@quakenet.org>
+
+	* a_string.c
+	added buffer safe string routines to remove dubious (*cough*)
+	use of strcpy / strncpy
+
+2002-06-05  froo  <froo@quakenet.org>
+
+	* clientcommands/unbanall.c:
+	fixed a typo
+
+	* readconfig.c:
+	stripQuote(), remove quotes on input.
+
+	* clientcommands/help.c, clientcommands/recover.c, servercommands/privmsg.c:
+	recover "macro", recover a channel (deopall/unbanall/clearchan)
+
+	* help/grep.oper:
+	help text for GREP
+
+	* help/recover.oper, help/recover.user:
+	help text for RECOVER
+
+	* clientcommands/grep.c:
+	added -l to usage
+
+	* lightweight.h:
+	declaration for dorecover()
+
+	* help/deopall.user:
+	changed text to reflect new requirement for deopall, ie +m or +n
+
+2002-06-04  froo  <froo@quakenet.org>
+
+	* clientcommands/cleanupdb.c:
+	display the channels being removed
+
+2002-06-03  froo  <froo@quakenet.org>
+
+	* dblist.c:
+	fixed puny bug in PrintUInfoRestricted(), PrintUInfo()
+	made PrintChanlev() sort on CFLAG_OP as well
+	added "one user mode" to PrintChanlev()
+
+	* dblist.h, chanlev.c:
+	updated PrintChanlev to have "one user" mode.
+
+2002-05-31  froo  <froo@quakenet.org>
+
+	* clientcommands/grep.c:
+	lowered default number of lines to show from 100 to 20, added an
+	option (-l num) to raise it to a maximum of MAX_HITS (currently 1000)
+
+	* connecttoserver.c:
+	log SendLine's via DebugLog() instead.
+
+	* log.c:
+	added a separate debuglog, to stop SendLine from cluttering
+	the normal logfiles.
+
+	* lightweight.h:
+	added a debuglog
+
+2002-05-30  splidge  <splidge@quakenet.org>
+
+	* clientcommands/deopall.c:
+	Added -l switch to deopall to reduce hack spam.
+
+2002-05-28  froo  <froo@quakenet.org>
+
+	* clientcommands/grep.c:
+	a PCRE based inband log grepper.
+
+	* servercommands/privmsg.c:
+	added an inband log grep'per
+
+	* clientcommands/help.c:
+	added help text for grep
+
+	* lightweight.h: dogrep()
+
+	* Makefile: Include libpcre
+
+2002-05-23  froo  <froo@quakenet.org>
+
+	* restoredbfromdisk.c:
+	fixed errormessage.
+
+2002-05-21  strutsi  <strutsi@quakenet.org>
+
+	* dblist.c:
+	minor fixes
+
+	* clientcommands/chanlev.c:
+	helper raised authlevel update
+
+	* clientcommands/help.c, clientcommands/suspendlist.c, dblist.c, servercommands/privmsg.c:
+	Helper raised authlevel added
+
+2002-05-21  splidge  <splidge@quakenet.org>
+
+	* dblist.c:
+	"ChangeChanlev" logic fixes.  Fixes following bugs:
+
+	* User with just +a and/or +g left should be removed properly now
+	* User adds aborted due to trying to add +m/+n when not owner doesn't leave
+	  users with not flags on the channel any more
+	* Sole owner trying to -n a non-owner doesn't fail any more (e.g.
+	  removeuser)
+
+	Removed commented out "founder protection" code for clarity.
+
+2002-05-21  froo  <froo@quakenet.org>
+
+	* readconfig.c:
+	added std GNU blurb
+
+2002-05-19  splidge  <splidge@quakenet.org>
+
+	* help/invite.oper, help/invite.user:
+	Fixed English a bit :)
+
+	(changed "other users than yourself" to "users other than yourself")
+
+2002-05-19  bigfoot  <bigfoot@quakenet.org>
+
+	* clientcommands/voice.c:
+	fixed explanation
+
+2002-05-18  splidge  <splidge@quakenet.org>
+
+	* accountsdb.c:
+	Changed so that if L doesn't think a channel exists it won't join it in
+	DoAllAutoModes().
+
+2002-05-18  bigfoot  <bigfoot@quakenet.org>
+
+	* parseline.c:
+	Added fix for joins with timestamps
+
+	* channelsdb.h, clientcommands/welcome.c, restoredbfromdisk.c, savedbtodisk.c:
+	made welcomemsgs save, no conversion of accounts-file needed
+
+2002-05-16  froo  <froo@quakenet.org>
+
+	* clientcommands/help.c:
+	help text updated for adduser/removeuser.
+
+	* clientcommands/removeuser.c:
+	removeuser: Remove a user from a channel
+
+	* clientcommands/adduser.c:
+	adduser: add a user to a channel with the default flags +ao
+
+	* servercommands/privmsg.c:
+	added adduser and removeuser
+
+	* help/removeuser.oper, help/removeuser.user:
+	help text for REMOVEUSER
+
+	* help/adduser.oper, help/adduser.user:
+	help text for ADDUSER
+
+	* lightweight.h:
+	added declaration for doadduser() and doremoveuser()
+
+2002-05-16  bigfoot  <bigfoot@quakenet.org>
+
+	* servercommands/join.c:
+	added onjoin welcome msgs
+
+2002-05-16  strutsi  <strutsi@quakenet.org>
+
+	* help/welcome.oper, help/welcome.user:
+	added the remove help
+
+2002-05-16  froo  <froo@quakenet.org>
+
+	* clientcommands/help.c:
+	invite command added
+
+	* servercommands/privmsg.c:
+	invite code added
+
+	* clientcommands/invite.c:
+	invite code
+
+	* channels.h:
+	declaration for InviteUser()
+
+	* channels.c:
+	added InviteUser()
+
+2002-05-16  strutsi  <strutsi@quakenet.org>
+
+	* clientcommands/welcome.c:
+	works..
+
+2002-05-16  froo  <froo@quakenet.org>
+
+	* lightweight.h:
+	added declaration for doinvite()
+
+	* help/invite.oper, help/invite.user:
+	invite command.
+
+2002-05-16  strutsi  <strutsi@quakenet.org>
+
+	* clientcommands/welcome.c:
+	remove works
+
+	* clientcommands/welcome.c:
+	another update
+
+	* clientcommands/welcome.c:
+	remove added
+
+	* channelsdb.c:
+	welcome support
+
+	* clientcommands/welcome.c:
+	patch
+
+	* clientcommands/welcome.c:
+	Welcome command
+
+	* clientcommands/help.c, help/welcome.oper, help/welcome.user, lightweight.h, servercommands/privmsg.c:
+	Partial welcome support
+
+2002-05-16  froo  <froo@quakenet.org>
+
+	* clientcommands/status.c:
+	revamped the channel histogram a bit.
+
+2002-05-13  strutsi  <strutsi@quakenet.org>
+
+	* dblist.c:
+	yes we'll all learn to read english eventually (just language fix)
+
+2002-05-13  froo  <froo@quakenet.org>
+
+	* clientcommands/cleanupdb.c:
+	also remove non-empty channels w/o any owner (+n)
+
+2002-05-13  strutsi  <strutsi@quakenet.org>
+
+	* dblist.c:
+	refixed the damn owner removal feature
+
+	* accountsdb.h, dblist.c:
+	Added the +n flag removal thing
+
+2002-05-11  froo  <froo@quakenet.org>
+
+	* servercommands/privmsg.c:
+	die - make the service save and exit.
+
+	* clientcommands/help.c:
+	help text for die.
+
+	* clientcommands/die.c:
+	die - tell the service to save and exit.
+
+	* help/die.oper:
+	help text for DIE
+
+	* clientcommands/save.c:
+	added FlushLogs()
+
+	* lightweight.h: added die
+
+2002-05-10  froo  <froo@quakenet.org>
+
+	* clientcommands/status.c:
+	added channel histogram to the output.
+
+	* clientcommands/cleanupdb.c:
+	now ignores suspended channels. also added a preview (-n) option.
+
+	* clientcommands/raw.c:
+	fixed typo.
+
+2002-05-09  strutsi  <strutsi@quakenet.org>
+
+	* dblist.c:
+	Added end of list message for whois/whoami channel list
+
+2002-05-09  bigfoot  <bigfoot@quakenet.org>
+
+	* clientcommands/deopall.c:
+	raised restriction on deopall to +m or +n
+
+2002-05-08  bigfoot  <bigfoot@quakenet.org>
+
+	* dblist.c:
+	added ending on chanlevs
+
+2002-05-07  bigfoot  <bigfoot@quakenet.org>
+
+	* clientcommands/access.c:
+	added code for access command
+
+	* connecttoserver.c:
+	added logging to SendLine()
+
+2002-05-06  splidge  <splidge@quakenet.org>
+
+	* servercommands/privmsg.c:
+	Fixed case sensitive UNBANALL
+
+2002-05-06  strutsi  <strutsi@quakenet.org>
+
+	* accountsdb.c, dblist.c:
+	Removed a few bugs
+
+2002-05-06  splidge  <splidge@quakenet.org>
+
+	* restoredbfromdisk.c:
+	Added to prevent restore of empty channels.
+
+2002-05-06  froo  <froo@quakenet.org>
+
+	* clientcommands/deopall.c:
+	added support for upcoming CLEARMODE and OPMODE (ircu2.10.11)
+
+	* lightweight.h:
+	added cleanupdb
+
+	* clientcommands/cleanupdb.c:
+	cleanupdb: removes unused (no authed join for DAYS_BEFORE_EXPIRE days) and
+	and empty channels (ie: empty chanlev)
+
+	* help/cleanupdb.oper:
+	helptext for CLEANUPDB
+
+	* servercommands/privmsg.c:
+	added cleanupdb
+
+2002-05-06  bigfoot  <bigfoot@quakenet.org>
+
+	* clientcommands/delchan.c:
+	fixed spellingerror
+
+2002-05-05  bigfoot  <bigfoot@quakenet.org>
+
+	* lightweight.c, lightweight.h, log.c:
+	minor corrections with logging
+
+2002-05-05  froo  <froo@quakenet.org>
+
+	* clientcommands/raw.c:
+	switched to CheckAuthLevel(), fixored the sending numeric.
+
+2002-05-05  bigfoot  <bigfoot@quakenet.org>
+
+	* lightweight.conf.example:
+	fixed confusing quotes in example conf
+
+	* clientcommands/chanstat.c, clientcommands/unsuspend.c:
+	fixed channel references instead of chan
+
+	* clientcommands/addchan.c:
+	fixed too few args for Log() call
+
+2002-05-04  bigfoot  <bigfoot@quakenet.org>
+
+	* clientcommands/clearchan.c, clientcommands/delchan.c, clientcommands/deluser.c, clientcommands/deopall.c, clientcommands/raw.c, clientcommands/reauth.c, clientcommands/save.c, clientcommands/suspend.c, clientcommands/unbanall.c, clientcommands/unsuspend.c, clientcommands/addchan.c, clientcommands/changelev.c, clientcommands/chanstat.c, dblist.c:
+	added logging to all commands that should be logged in production mode
+
+2002-05-03  froo  <froo@quakenet.org>
+
+	* clientcommands/raw.c:
+	enables sending raw P10 messages.
+
+	* clientcommands/reauth.c:
+	forces a reauth with O
+
+	* servercommands/privmsg.c:
+	added 2 new oper commands, reauth and raw.
+
+	* clientcommands/help.c:
+	added help text for reauth.
+
+	* lightweight.h:
+	added reauth and raw.
+
+	* help/reauth.oper:
+	help text for the REAUTH command.
+
+	* help/raw.oper:
+	help text for the RAW command.
+
+2002-05-02  froo  <froo@quakenet.org>
+
+	* readconfig.c, lightweight.c, globalexterns.h:
+	ifdef'ed the o_ stuff.
+
+	* lightweight.h:
+	removed the O_ defines, since they are in the config file now.
+
+	* lightweight.h:
+	removed inclusion of serversettings.h, since it's handled in a separate
+	config file now. /froo
+
+	* serversettings.h:
+	this file is depracated. use lightweight.conf instead.
+
+2002-05-01  froo  <froo@quakenet.org>
+
+	* lightweight.c:
+	added args parsing w. getopt() for specifying a config file to read w. -c,
+	ie: lightweight -c /path/to/config/file.conf
+
+2002-04-30  froo  <froo@quakenet.org>
+
+	* readconfig.c: ffs
+
+2002-04-29  froo  <froo@quakenet.org>
+
+	* servercommands/privmsg.c:
+	renamed NASTY_DEOPALL_HACK to HORRIBLE_DEOPALL_HACK
+
+	* servercommands/nick.c, clientcommands/deopall.c, clientcommands/fish.c, clientcommands/neigh.c, clientcommands/clearchan.c, clientcommands/cow.c, clientcommands/unbanall.c, sendinittoserver.c, servercommands/endofburst.c:
+	changed to use values from the configfile.
+
+	* readconfig.c: typo.
+
+	* parseline.c:
+	changed to use values from the configfile.
+
+	* lightweight.h:
+	added declarations for readconfig.c
+
+	* lightweight.c:
+	changed to use values from the configfile.
+
+	* globalexterns.h:
+	added globals for the configfile stuff.
+
+	* general.c, connecttoserver.c, channels.c:
+	changed to use values from the configfile.
+
+	* readconfig.c:
+	reads and loads lightweights config file.
+
+	* lightweight.conf.example:
+	added O's configs.
+
+2002-04-26  froo  <froo@quakenet.org>
+
+	* sendinittoserver.c:
+	added errorhandling
+
+2002-04-26  bigfoot  <bigfoot@quakenet.org>
+
+	* clientcommands/chanlev.c, dblist.c:
+	corrrecting chanlev logging
+
+	* servercommands/privmsg.c:
+	added handler for CTCP's (currently ignoring)
+
+	* accounts.0:
+	added default accounts file
+
+	* log.c:
+	fixed missing return in loglines
+
+	* clientcommands/chanlev.c:
+	added chanlev change logging
+
+	* log.c:
+	fix initial conditions bug
+
+	* general.c, lightweight.c, lightweight.h, log.c:
+	Added corelogging
+
+2002-04-25  splidge  <splidge@quakenet.org>
+
+	* clientcommands/addchan.c, clientcommands/delchan.c:
+	Fixed spelling.
+
+2002-04-23  splidge  <splidge@quakenet.org>
+
+	* channelsdb.c:
+	Fixed trying to join channels when loading DB (before connected to
+	notwork...)
+
+2002-04-23  bigfoot  <bigfoot@quakenet.org>
+
+	* dblist.c:
+	sorted chanlev output
+
+2002-04-20  zarjazz  <zarjazz@quakenet.org>
+
+	* channelsdb.c:
+	Channnel delete fix
+
+2002-04-18  froo  <froo@quakenet.org>
+
+	* servercommands/privmsg.c:
+	the fish command.
+
+	* lightweight.h:
+	added the fish command.
+
+	* clientcommands/fish.c:
+	sorry guys, had to do it :) /froo
+
+2002-04-17  strutsi  <strutsi@quakenet.org>
+
+	* dblist.c:
+	Fixed chanlev
+
+2002-04-17  zarjazz  <zarjazz@quakenet.org>
+
+	* general.c, clientcommands/accountlist.c, clientcommands/chanlev.c, clientcommands/channellist.c, clientcommands/chanstat.c, clientcommands/deopall.c, clientcommands/help.c, clientcommands/noticeme.c, clientcommands/status.c, clientcommands/suspendlist.c, dblist.c, globalexterns.h, lightweight.c, servercommands/nick.c, servercommands/privmsg.c:
+	match2strings update
+
+2002-04-13  bigfoot  <bigfoot@quakenet.org>
+
+	* manual-german.html:
+	Added german translation of the manual
+
+2002-04-12  froo  <froo@quakenet.org>
+
+	* general.c, clientcommands/help.c, lightweight.h, servercommands/privmsg.c:
+	added support for noticeme on|off (noticeme.c)
+
+	* clientcommands/noticeme.c:
+	noticeme: toggles usage of PRIVMSG/NOTICES
+
+2002-04-12  strutsi  <strutsi@quakenet.org>
+
+	* dblist.c:
+	Fixed the chanlev bug
+
+2002-04-12  bigfoot  <bigfoot@quakenet.org>
+
+	* clientcommands/deopall.c:
+	fixed bug when communicating with O (wont work with notices...)
+
+2002-04-11  bigfoot  <bigfoot@quakenet.org>
+
+	* clientcommands/accountlist.c, clientcommands/addchan.c, clientcommands/changelev.c, clientcommands/chanlev.c, clientcommands/channellist.c, clientcommands/chanstat.c, clientcommands/clearchan.c, clientcommands/cow.c, clientcommands/delchan.c, clientcommands/deluser.c, clientcommands/deopall.c, clientcommands/help.c, clientcommands/neigh.c, clientcommands/op.c, clientcommands/save.c, clientcommands/status.c, clientcommands/suspend.c, clientcommands/suspendlist.c, clientcommands/unbanall.c, clientcommands/unsuspend.c, clientcommands/userlist.c, clientcommands/version.c, clientcommands/voice.c, clientcommands/whois.c, dblist.c:
+	Switched to sending everything as notices
+
+	* clientcommands/cow.c:
+	I said cow, not neigh, dammit
+
+	* clientcommands/cow.c:
+	Fixed stupid escape bug in sprintf
+
+	* clientcommands/cow.c, lightweight.h, servercommands/privmsg.c:
+	added cow command
+
+	* manual-english.html:
+	added manual
+
+2002-04-11  strutsi  <strutsi@quakenet.org>
+
+	* channelsdb.c, dblist.c:
+	Fixed (?) The channel join on add problem and the chanlev bug
+
+2002-04-07  bigfoot  <bigfoot@quakenet.org>
+
+	* faq.html:
+	added faq for lightweight
+
+2002-04-02  zarjazz  <zarjazz@quakenet.org>
+
+	* restoredbfromdisk.c:
+	small cleanup
+
+2002-03-31  bigfoot  <bigfoot@quakenet.org>
+
+	* chattr.tab.c, hash.c, strcmp.c, strcmp.h:
+	Switched to the ircu strcmp functions
+
+2002-03-28  zarjazz  <zarjazz@quakenet.org>
+
+	* help.zip: cleanup
+
+2002-03-27  splidge  <splidge@quakenet.org>
+
+	* general.c, lightweight.h, servercommands/privmsg.c:
+	Changed to send NOTICE instead of PRIVMSG for invalid commands etc.
+
+	* servercommands/privmsg.c:
+	Fixed runaway conversation with O problem
+
+	* servercommands/privmsg.c:
+	Fixed numeric lookup bug
+
+2002-03-27  bigfoot  <bigfoot@quakenet.org>
+
+	* dblist.c:
+	spelling error fixed
+
+2002-03-26  strutsi  <strutsi@quakenet.org>
+
+	* dblist.c:
+	Added the ability to remove own flags
+
+2002-03-26  splidge  <splidge@quakenet.org>
+
+	* clientcommands/neigh.c:
+	Fix compiler warning
+
+2002-03-26  strutsi  <strutsi@quakenet.org>
+
+	* strcmp.c:
+	Fixed the feature pils found
+
+2002-03-26  splidge  <splidge@quakenet.org>
+
+	* clientcommands/deopall.c, lightweight.h, servercommands/nick.c:
+	Tidied up deopall code; uses "secure" auth and reops L after the deopall is
+	done.
+
+2002-03-26  strutsi  <strutsi@quakenet.org>
+
+	* clientcommands/deopall.c, globalexterns.h, lightweight.c, lightweight.h, servercommands/nick.c:
+	Added O support instead of HORRIBLE_DEOPALL_HACK
+
+2002-03-26  zarjazz  <zarjazz@quakenet.org>
+
+	* clientcommands/neigh.c, clientcommands/showcommands.c, clientcommands/status.c, connecttoserver.c, error.c, getlinefromchunk.c, lightweight.h, parseline.c, readchunk.c, restoredbfromdisk.c, savedbtodisk.c, sendinittoserver.c, servercommands/privmsg.c, accountsdb.c:
+	Tiny cleanup
+
+2002-03-25  strutsi  <strutsi@quakenet.org>
+
+	* clientcommands/showcommands.c:
+	Fixed something
+
+	* clientcommands/channellist.c, clientcommands/suspendlist.c:
+	Fixed spacing
+
+	* clientcommands/help.c, clientcommands/showcommands.c, lightweight.h, servercommands/privmsg.c:
+	Added the showcommands to make L more Q like
+
+2002-03-25  splidge  <splidge@quakenet.org>
+
+	* clientcommands/neigh.c, clientcommands/status.c, lightweight.h, servercommands/privmsg.c:
+	Tidied up status output, added "neigh" command.
+
+2002-03-25  bigfoot  <bigfoot@quakenet.org>
+
+	* accountsdb.c, allocate.c, channels.c, channelsdb.c, channelsdb.h, clientcommands/accountlist.c, clientcommands/addchan.c, clientcommands/channellist.c, clientcommands/chanstat.c, clientcommands/clearchan.c, clientcommands/deluser.c, clientcommands/deopall.c, clientcommands/op.c, clientcommands/status.c, clientcommands/suspend.c, clientcommands/suspendlist.c, clientcommands/unsuspend.c, clientcommands/userlist.c, clientcommands/voice.c, general.c, globalexterns.h, lightweight.c, lightweight.h, parseline.c, restoredbfromdisk.c, savedbtodisk.c, servercommands/join.c, servercommands/privmsg.c, servercommands/server.c, usersdb.c:
+	Added memory-statistics and indented the lot
+
+2002-03-24  strutsi  <strutsi@quakenet.org>
+
+	* general.c:
+	Made a fast fix to search patterns case insensitively
+
+	* clientcommands/accountlist.c, clientcommands/userlist.c:
+	Fixed the spacing and silly typos
+
+2002-03-23  strutsi  <strutsi@quakenet.org>
+
+	* clientcommands/help.c, help/accountlist.oper, help/userlist.oper, lightweight.h, servercommands/privmsg.c:
+	Added accountlist and userlist functions and attached them everywhere
+
+	* clientcommands/accountlist.c:
+	Account listing function not attached anywhere yet
+
+	* clientcommands/userlist.c:
+	Userlisting function, not attached anywhere yet
+
+	* help/status.oper:
+	Added a new help
+
+	* clientcommands/help.c:
+	Added status help
+
+2002-03-23  splidge  <splidge@quakenet.org>
+
+	* clientcommands/channellist.c:
+	Fixed missing argument
+
+2002-03-23  strutsi  <strutsi@quakenet.org>
+
+	* help/channellist.oper, help/suspendlist.oper:
+	New helps
+
+2002-03-23  splidge  <splidge@quakenet.org>
+
+	* clientcommands/channellist.c, clientcommands/suspendlist.c, lightweight.h:
+	Fixes
+
+2002-03-23  strutsi  <strutsi@quakenet.org>
+
+	* servercommands/privmsg.c:
+	Fixed something really stupid
+
+	* clientcommands/channellist.c, clientcommands/help.c, lightweight.h:
+	Added channelist
+
+	* servercommands/privmsg.c:
+	Added channellist function
+
+2002-03-23  splidge  <splidge@quakenet.org>
+
+	* restoredbfromdisk.c:
+	Added some more sanity checks
+
+	* clientcommands/status.c:
+	New command
+
+	* servercommands/privmsg.c:
+	Added status call
+
+	* lightweight.h:
+	Added dostatus function
+
+	* lightweight.c:
+	Added startuptime value
+
+	* globalexterns.h:
+	Added starttime value
+
+2002-03-23  strutsi  <strutsi@quakenet.org>
+
+	* servercommands/privmsg.c, clientcommands/help.c:
+	Added suspendlist
+
+	* clientcommands/suspendlist.c, general.c, lightweight.h:
+	Added channel suspension listing
+
+2002-03-23  splidge  <splidge@quakenet.org>
+
+	* clientcommands/help.c:
+	Prevented dohelp() from displaying the last line of the helpfile twice.
+
+	* restoredbfromdisk.c:
+	Added DEBUG #ifdefs
+
+	* accountsdb.c:
+	Added check on SetUserChannelFlags
+
+	* channelsdb.h:
+	Fixed definitions of (unused) flags for protect/bitch/etc.
+
+2002-03-21  strutsi  <strutsi@quakenet.org>
+
+	* help/chanstat.oper, help/suspend.oper, help/unsuspend.oper:
+	New helps
+
+2002-03-21  splidge  <splidge@quakenet.org>
+
+	* servercommands/join.c:
+	Fixed deop bug
+
+2002-03-21  strutsi  <strutsi@quakenet.org>
+
+	* channelsdb.c, channelsdb.h:
+	Fixed the suspension a bit
+
+	* channelsdb.h:
+	Added channel suspension functions
+
+	* channelsdb.c:
+	Added suspension functions
+
+2002-03-21  splidge  <splidge@quakenet.org>
+
+	* restoredbfromdisk.c:
+	Fixed bug reading suspend reason
+
+	* clientcommands/deluser.c:
+	Fixed small bug with missing argument to MessageToUser()
+
+	* restoredbfromdisk.c:
+	Fix silly typo :)
+
+	* accountsdb.c, accountsdb.h, channels.c, channelsdb.c, channelsdb.h, channels.h, clientcommands/addchan.c, clientcommands/chanlev.c, clientcommands/chanstat.c, clientcommands/clearchan.c, clientcommands/deopall.c, clientcommands/help.c, clientcommands/op.c, clientcommands/suspend.c, clientcommands/unbanall.c, clientcommands/unsuspend.c, clientcommands/voice.c, globalexterns.h, lightweight.c, lightweight.h, parseline.c, restoredbfromdisk.c, savedbtodisk.c, sendinittoserver.c, servercommands/join.c, servercommands/privmsg.c:
+	HORRIBLE_DEOPALL_HACK -- This causes L to never complete its burst, so it
+	can hack B messages at a later date (this is primarily useful for deopall)
+
+	SIT_ON_CHANNELS -- This causes L to sit on channels and use "user modes"
+	rather than being hidden and using server mode hacks.
+
+	AUTOMODES_IN_BURST -- This affects whether L will give automodes (+ao,
+	+a/gv) to users when it is bursting.
+
+	Added support for channel suspension (struct updates, suspend/unsuspend
+	commands, support in save/restoredb).
+
+	Added chanstat command.
+
+	New commands have had summary added to help.c but no real help yet (hi
+	strutsi! :)
+
+	Added channel flags; currently used to store joined/suspended state, but can
+	be used for protect mode/bitch mode/etc. if wanted.
+
+	Pulled all the op/voice/etc. routines into a seperate file (channels.c) to
+	minimise the number of #ifdef's in the code.
+
+	Other things I've probably forgotten.
+
+2002-03-20  bigfoot  <bigfoot@quakenet.org>
+
+	* clientcommands/help.c:
+	fixed path bug
+
+	* clientcommands/help.c:
+	Fixed stupid counterbug
+
+	* datastructures.txt, accountsdb.c, accountsdb.h, channelsdb.c, channelsdb.h, clientcommands/addchan.c, restoredbfromdisk.c, savedbtodisk.c, servercommands/join.c, lightweight.h:
+	Added timestamp to channels
+
+2002-03-20  strutsi  <strutsi@quakenet.org>
+
+	* lightweight.h:
+	Suspension the fixed version
+
+	* lightweight.h:
+	Added the suspension feature
+
+2002-03-20  bigfoot  <bigfoot@quakenet.org>
+
+	* accountsdb.c, channelsdb.c, clientcommands/addchan.c, clientcommands/deluser.c, clientcommands/help.c, clientcommands/version.c, dblist.c, hash.c, lightweight.h, parseline.c, restoredbfromdisk.c, savedbtodisk.c, servercommands/nick.c, servercommands/privmsg.c, strcmp.c, strcmp.h, usersdb.c:
+	added paranoid check in clientcommands/help.c and indented the lot
+
+	* strcmp.h:
+	added last newline...
+
+	* datastructures.txt:
+	added explanation for the savefilestructure
+
+2002-03-20  strutsi  <strutsi@quakenet.org>
+
+	* help/addchan.oper, help/changelev.oper, help/chanlev.oper, help/chanlev.user, help/clearchan.oper, help/clearchan.user, help/delchan.oper, help/deluser.oper, help/deopall.oper, help/deopall.user, help/help.oper, help/help.user, help/op.oper, help/op.user, help/save.oper, help/unbanall.oper, help/unbanall.user, help/version.oper, help/version.user, help/voice.oper, help/voice.user, help/whoami.oper, help/whoami.user, help/whois.oper, help/whois.user:
+	Added the help files
+
+2002-03-20  splidge  <splidge@quakenet.org>
+
+	* restoredbfromdisk.c:
+	Removed spurious 7
+
+	* restoredbfromdisk.c:
+	Fixed bug with empty channel list
+
+2002-03-20  strutsi  <strutsi@quakenet.org>
+
+	* clientcommands/version.c:
+	Another fix..
+
+	* clientcommands/version.c:
+	Fixed the __DATE__ macro
+
+	* clientcommands/deluser.c, clientcommands/help.c, clientcommands/version.c, lightweight.h, servercommands/privmsg.c:
+	Added deluser and version commands
+
+	* help.gz:
+	Broken file
+
+	* help.zip:
+	Contains the help files (Fixed version)
+
+2002-03-20  splidge  <splidge@quakenet.org>
+
+	* accountsdb.h, clientcommands/chanlev.c, dblist.h, lightweight.h:
+	Updates to make it compile with no warnings
+
+	* accountsdb.c, usersdb.c:
+	Added "auto modes on auth" functionality
+
+	* parseline.c:
+	Added support for opering/deopering users
+
+	* servercommands/privmsg.c:
+	Added "help" handler
+
+2002-03-19  strutsi  <strutsi@quakenet.org>
+
+	* help.gz:
+	The command help files
+
+	* clientcommands/help.c:
+	New help file handling
+
+2002-03-19  splidge  <splidge@quakenet.org>
+
+	* servercommands/nick.c:
+	termination fixes
+
+	* savedbtodisk.c: fixes
+
+	* dblist.c: Small fixes
+
+	* channelsdb.c:
+	string termination fix
+
+	* clientcommands/delchan.c:
+	Fixed message.
+
+2002-03-19  strutsi  <strutsi@quakenet.org>
+
+	* clientcommands/help.c:
+	Fixed an eternal loop
+
+	* clientcommands/help.c:
+	made the help functions
+
+2002-03-19  splidge  <splidge@quakenet.org>
+
+	* accountsdb.c, channelsdb.c, clientcommands/addchan.c, db.c, dblist.c, lightweight.h, parseline.c, servercommands/server.c, strcmp.c:
+	Assorted updates.  Should fix case sensitivity problems.
+	Also removes annoying "Null line" error.
+
+2002-03-18  strutsi  <strutsi@quakenet.org>
+
+	* hash.c:
+	Modified the hash to deal with the case issues
+	if you figure out a better way of doing it, /msg me
+
+	* accountsdb.c, lightweight.h, servercommands/privmsg.c, usersdb.c:
+	Made the system to use new strcmp() function
+
+	* strcmp.c, strcmp.h:
+	The string comparation functions that deal with ircd specialities
+
+2002-03-18  zarjazz  <zarjazz@quakenet.org>
+
+	* savedbtodisk.c, servercommands/nick.c, serversettings.h, usersdb.h, accountsdb.c, accountsdb.h, base64.h, channelsdb.h, dblist.c, dblist.h, general.c, globalexterns.h, lightweight.c, lightweight.h, Makefile, readchunk.c:
+	comment stuff
+
+	* accountsdb.c, allocate.c, base64.c, clientcommands/addchan.c, clientcommands/changelev.c, clientcommands/chanlev.c, clientcommands/clearchan.c, clientcommands/deopall.c, clientcommands/op.c, connecttoserver.c, dblist.c, dblist.h, hash.c, Makefile, savedbtodisk.c, servercommands/endofburst.c, servercommands/privmsg.c, servercommands/quit.c, servercommands/server.c, servercommands/squit.c, usersdb.c:
+	sigh
+
+2002-03-18  strutsi  <strutsi@quakenet.org>
+
+	* clientcommands/changelev.c:
+	Fixed an unfortunate crash bug
+
+2002-03-18  splidge  <splidge@quakenet.org>
+
+	* accountsdb.c, clientcommands/op.c, dblist.c, dblist.h:
+	Updated some things.  Chanlev now mostly working.
+
+2002-03-17  splidge  <splidge@quakenet.org>
+
+	* accountsdb.c, accountsdb.h, clientcommands/chanlev.c, servercommands/privmsg.c, serversettings.h, usersdb.c:
+	Updates
+
+2002-03-17  strutsi  <strutsi@quakenet.org>
+
+	* dblist.c, dblist.h:
+	added the command to modify chanlev
+
+	* base64.c:
+	Fixed an issue with the numerics
+
+2002-03-17  zarjazz  <zarjazz@quakenet.org>
+
+	* clientcommands/addchan.c, clientcommands/changelev.c, clientcommands/clearchan.c, clientcommands/delchan.c, clientcommands/deopall.c, clientcommands/help.c, clientcommands/op.c, clientcommands/save.c, clientcommands/unbanall.c, clientcommands/voice.c, clientcommands/whoami.c, clientcommands/whois.c, servercommands/endofburst.c, servercommands/join.c, servercommands/mode.c, servercommands/nick.c, servercommands/part.c, servercommands/privmsg.c, servercommands/quit.c, servercommands/server.c, servercommands/squit.c, accountsdb.c, accountsdb.h, allocate.c, base64.c, base64.h, channelsdb.c, channelsdb.h, connecttoserver.c, db.c, dblist.c, dblist.h, error.c, general.c, getlinefromchunk.c, globalexterns.h, hash.c, lightweight.c, lightweight.h, Makefile, parseline.c, readchunk.c, restoredbfromdisk.c, savedbtodisk.c, sendinittoserver.c, serversettings.h, usersdb.c, usersdb.h:
+	Applying Coding Style
+
+	* CODING-STYLE, accountsdb.c, accountsdb.h, channelsdb.c, channelsdb.h, dblist.c, dblist.h:
+	Removing Bogus DOS \r chars
+
+	* CODING-STYLE: Initial Import
+
+2002-03-17  splidge  <splidge@quakenet.org>
+
+	* accountsdb.c, accountsdb.h, clientcommands/changelev.c, clientcommands/clearchan.c, clientcommands/deopall.c, clientcommands/op.c, clientcommands/unbanall.c, clientcommands/voice.c, clientcommands/whoami.c, clientcommands/whois.c, lightweight.c, lightweight.h, parseline.c, servercommands/join.c, servercommands/privmsg.c:
+	More updates and new commands
+
+2002-03-17  strutsi  <strutsi@quakenet.org>
+
+	* accountsdb.c, accountsdb.h, channelsdb.c, channelsdb.h:
+	Some changes and additions
+
+	* allocate.c:
+	Added my allocation functions
+
+	* accountsdb.c, accountsdb.h, dblist.c, dblist.h:
+	Some modifications and whois/whoami/chanlev printing
+
+	* accountsdb.c, accountsdb.h, channelsdb.c, channelsdb.h:
+	Fixed a few bugs in the databases
+
+2002-03-17  splidge  <splidge@quakenet.org>
+
+	* accountsdb.c, accountsdb.h, allocate.c, base64.c, base64.h, channelsdb.c, channelsdb.h, clientcommands/addchan.c, clientcommands/changelev.c, clientcommands/delchan.c, clientcommands/save.c, db.c, error.c, general.c, lightweight.h, Makefile, parseline.c, restoredbfromdisk.c, savedbtodisk.c, sendinittoserver.c, servercommands/join.c, servercommands/nick.c, servercommands/privmsg.c, servercommands/server.c, serversettings.h, usersdb.c, usersdb.h:
+	* RestoreDB/LoadDB functions work
+	* added some user commands (save,changelev,addchan,delchan)
+	* ran make indent and regretted it (hopefully I've managed to tidy up
+	  sufficiently now)
+	* assorted updates everywhere
+	* some of these files haven't changed really and CVS is mad
+
+2002-03-16  splidge  <splidge@quakenet.org>
+
+	* serversettings.h:
+	Initial release -- contains splidge's settings :)
+
+2002-03-16  strutsi  <strutsi@quakenet.org>
+
+	* accountsdb.c, accountsdb.h, channelsdb.c:
+	Some changes in the databases
+
+	* lightweight.h:
+	Modified the reggedchannel struct a bit
+
+	* accountsdb.c, accountsdb.h:
+	Added a AutoModes() function with some definitions
+
+2002-03-16  splidge  <splidge@quakenet.org>
+
+	* servercommands/join.c:
+	Written code :)
+
+	* error.c: Changed to Error()
+
+	* lightweight.h:
+	Added stuff for Error()
+
+2002-03-15  strutsi  <strutsi@quakenet.org>
+
+	* accountsdb.c, accountsdb.h, channelsdb.c, channelsdb.h, usersdb.c, usersdb.h:
+	Cleaned up and modified the headers a bit
+
+	* accountsdb.c, accountsdb.h, base64.c, base64.h, channelsdb.c, channelsdb.h, usersdb.c, usersdb.h:
+	Fixed a few bugs and added the usersdb, tested to some extent
+
+2002-03-14  strutsi  <strutsi@quakenet.org>
+
+	* lightweight.h:
+	Modified the header a bit to better match the current situation
+
+2002-03-14  splidge  <splidge@quakenet.org>
+
+	* parseline.c:
+	Added support for AC messages
+
+2002-03-14  zarjazz  <zarjazz@quakenet.org>
+
+	* accountsdb.c, accountsdb.h, channelsdb.h, globalexterns.h, lightweight.h, savedbtodisk.c, Makefile:
+	fix bug in accountsdb.c
+
+2002-03-14  bigfoot  <bigfoot@quakenet.org>
+
+	* lightweight.h:
+	added defines for saving db
+
+2002-03-14  splidge  <splidge@quakenet.org>
+
+	* parseline.c:
+	Erm, as per last version but post-make indent
+
+	* parseline.c:
+	Updates to handle +r usermode correctly
+	TODO: add correct call to "auth" user when +r usermode seen (currently
+	      commented) out
+
+2002-03-13  bigfoot  <bigfoot@quakenet.org>
+
+	* savedbtodisk.c, sendinittoserver.c:
+	st00pid me, remember indent
+
+	* savedbtodisk.c:
+	Save accounts - this should be enough as channels can be reconstructed from this.
+
+	* sendinittoserver.c:
+	Fixed description of the lightweight user
+
+2002-03-13  zarjazz  <zarjazz@quakenet.org>
+
+	* Makefile, accountsdb.c, accountsdb.h, allocate.c, channelsdb.c, channelsdb.h, connecttoserver.c, db.c, error.c, general.c, getlinefromchunk.c, globalexterns.h, hash.c, lightweight.c, lightweight.h, makefile, parseline.c, readchunk.c, restoredbfromdisk.c, savedbtodisk.c, sendinittoserver.c, servercommands/endofburst.c, servercommands/nick.c, servercommands/server.c, servercommands/squit.c:
+	cleanup and generally make more sane
+
+2002-03-13  strutsi  <strutsi@quakenet.org>
+
+	* accountsdb.c, accountsdb.h, channelsdb.c, channelsdb.h:
+	Some updates to databases, account-channel interaction should now work
+
+2002-03-12  bigfoot  <bigfoot@quakenet.org>
+
+	* parseline.c, servercommands/nick.c, servercommands/server.c:
+	Clean up of code
+
+2002-03-12  strutsi  <strutsi@quakenet.org>
+
+	* accountsdb.c:
+	Act DB functions, add/remove works, act-chan interaction still needs a bit of code, subject to change, will comment better soon.
+
+2002-03-12  bigfoot  <bigfoot@quakenet.org>
+
+	* allocate.c, connecttoserver.c, error.c, general.c, hash.c, lightweight.c, lightweight.h, parseline.c, README, sendinittoserver.c, servercommands/nick.c, servercommands/server.c:
+	Cleaned up code to fix compilerwarnings and added a few comments
+
+2002-03-12  strutsi  <strutsi@quakenet.org>
+
+	* accountsdb.h:
+	Account DB functions, subject to change
+
+	* lightweight.h:
+	Modified the account structure to allow multiple auths for a single account
+
+2002-03-12  bigfoot  <bigfoot@quakenet.org>
+
+	* allocate.c, COMPILATION, error.c, general.c, makefile:
+	Commenting splidges functions and fixed a bug in LongToNumeric()
+
+2002-03-11  bigfoot  <bigfoot@quakenet.org>
+
+	* servercommands/server.c, allocate.c, connecttoserver.c, error.c, general.c, getlinefromchunk.c, globalexterns.h, lightweight.c, lightweight.h, makefile, parseline.c, readchunk.c, sendinittoserver.c, servercommands/endofburst.c, servercommands/nick.c, servercommands/squit.c:
+	merged splidge's code into the repository (needs a bit commenting)
+
+2002-03-10  bigfoot  <bigfoot@quakenet.org>
+
+	* sendinittoserver.c, servercommands/server.c, lightweight.h:
+	send and recieve initial two lines and handle them
+
+2002-03-08  bigfoot  <bigfoot@quakenet.org>
+
+	* README: README introduced
+
+2002-03-07  bigfoot  <bigfoot@quakenet.org>
+
+	* COMPILATION, hash.c:
+	Added hash.c and included zlib in the COMPILATION
+
+2002-03-03  bigfoot  <bigfoot@quakenet.org>
+
+	* connecttoserver.c, db.c, readchunk.c, servercommands/join.c, servercommands/mode.c, servercommands/nick.c, servercommands/part.c, servercommands/quit.c:
+	Cleaned up compilerwarnings and commented some functions with pseudocode suggestions
+
+2002-02-28  bigfoot  <bigfoot@quakenet.org>
+
+	* clientcommands/help.c, connecttoserver.c, COPYING, db.c, getlinefromchunk.c, globalexterns.h, LICENSE, lightweight.c, lightweight.h, parseline.c, readchunk.c, restoredbfromdisk.c, savedbtodisk.c, sendinittoserver.c, servercommands/join.c, servercommands/nick.c, servercommands/part.c, servercommands/privmsg.c, servercommands/quit.c:
+	Switched to GPL license
+
+	* clientcommands/help.c, COMPILATION, connecttoserver.c, datastructures.txt, db.c, getlinefromchunk.c, globalexterns.h, LICENSE, lightweight.c, lightweight.h, parseline.c, readchunk.c, restoredbfromdisk.c, savedbtodisk.c, sendinittoserver.c, servercommands/join.c, servercommands/nick.c, servercommands/part.c, servercommands/privmsg.c, servercommands/quit.c:
+
+	* clientcommands/help.c, COMPILATION, connecttoserver.c, datastructures.txt, db.c, getlinefromchunk.c, globalexterns.h, LICENSE, lightweight.c, lightweight.h, parseline.c, readchunk.c, restoredbfromdisk.c, savedbtodisk.c, sendinittoserver.c, servercommands/join.c, servercommands/nick.c, servercommands/part.c, servercommands/privmsg.c, servercommands/quit.c:
+	New file.
+

@@ -1,0 +1,7 @@
+/MSG L WELCOME #channel message
+Sets or views the message shown to every user joining the channel. If no message is defined, then the
+current channel welcome message is showed. You need to have either +m or +n access for the channel you
+intend to change the welcome on. Maximum welcome message lenght is 250 characters.
+You can remove the welcome message by using 'remove' as the new welcome message.
+Example: /msg l welcome #mychannel Hello and welcome to my channel!
+         /msg l welcome #mychannel remove

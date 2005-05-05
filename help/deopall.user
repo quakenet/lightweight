@@ -1,0 +1,4 @@
+/msg L DEOPALL #channel
+Deopall removes all channel operators by settings the mode -o to every
+user on the channel. You need to have the channel flag +m or +n for the
+channel for this command to work.

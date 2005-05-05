@@ -1,0 +1,728 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Raimo Nikkilä">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win95; I) [Netscape]">
+   <title>QuakeNet L ChanServ English Manual</title>
+</head>
+<body text="#FFFFFF" bgcolor="#000000" link="#66FFFF" vlink="#551A8B" alink="#FF99FF">
+
+<center><b><font color="#3366FF"><font size=+3>Official QuakeNet L ChanServ
+Manual</font></font></b>
+<br><b><font color="#33CCFF"><font size=+2>For L version 1.00</font></font></b>
+<br>&nbsp;
+<p><b><font color="#3366FF"><font size=+2>Index</font></font></b>
+<br><b><font color="#3366FF"><font size=+1>&nbsp;<a href="#INTRO">Introduction</a></font></font></b>
+<br><b><font color="#3366FF"><font size=+1><a href="#GETTINGSTARTED">Getting
+Started</a></font></font></b>
+<br><b><font color="#3366FF"><font size=+1><a href="#COMMANDS">Commands</a></font></font></b>
+<br><b><font color="#3366FF"><font size=+1><a href="#FAQ">Common Problems
+and FAQ</a></font></font></b></center>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p><a NAME="INTRO"></a><b><font color="#3366FF"><font size=+1>Introduction</font></font></b>
+<p><font size=+1><b><font color="#3366FF">&nbsp;&nbsp;&nbsp; </font></b><font color="#33CCFF">General
+information</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L
+is the new channel service (ChanServ) to be used in QuakeNet, it's especially
+designed to meet the current QuakeNet</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; requirements,
+and possible future needs. The command interface of L is very similar to
+that of the already existing channel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; service
+bot Q. Several of L's features are however different from those of Q's
+so, even if you're a relatively experienced user of the Q</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; we
+still recommend you to read this manual to avoid possible problems and
+misunderstandings.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; Features</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L
+has the support for the following functions and operations, see the <a href="#COMMANDS">commands</a>
+part of this manual for more information.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+Keeps the channel while all users are off-line</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+Protects the channel from possible takeover attempts</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+Sets modes +v/+o for known users on channel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+Can deop all users on channel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+Can remove all channel modes blocking entry to the channel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+Can remove all bans from channel</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; Differences between
+L and Q</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; While
+similar, Q and L have several differences, some of Q's features are not
+implemented in L and the major differences are</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; best
+seen on this table.</font>
+<br>&nbsp;
+<center><table BORDER COLS=3 WIDTH="80%" >
+<tr>
+<td>
+<div align=right>Feature</div>
+</td>
+
+<td>
+<div align=right>Q</div>
+</td>
+
+<td>
+<div align=right>L</div>
+</td>
+</tr>
+
+<tr>
+<td>Cannot be kicked, banned or deopped</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+</tr>
+
+<tr>
+<td>Maintains a channel while the users are off-line</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+</tr>
+
+<tr>
+<td>Gives modes +o/+v for known users</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+</tr>
+
+<tr>
+<td>Supports user flags</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+</tr>
+
+<tr>
+<td>Can ban users</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>No</div>
+</td>
+</tr>
+
+<tr>
+<td>Maintains channel topic</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>No</div>
+</td>
+</tr>
+
+<tr>
+<td>Handles a channel welcome message</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>No</div>
+</td>
+</tr>
+
+<tr>
+<td>Can clear all channel modes</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+</tr>
+
+<tr>
+<td>Supports channel flags</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>No</div>
+</td>
+</tr>
+
+<tr>
+<td>Can set mode -o to all channel operators on request (deopall)</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+</tr>
+
+<tr>
+<td>Can remove all bans from a channel</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+</tr>
+
+<tr>
+<td>Can Invite known users to +i channels</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>No</div>
+</td>
+</tr>
+
+<tr>
+<td>Can handle channel user limit</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>No</div>
+</td>
+</tr>
+
+<tr>
+<td>Can handle channel key</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>No</div>
+</td>
+</tr>
+
+<tr>
+<td>Can make sure that only users with the +v/+o flags have the corresponding
+modes on channel</td>
+
+<td>
+<div align=right>Yes</div>
+</td>
+
+<td>
+<div align=right>No</div>
+</td>
+</tr>
+</table></center>
+
+<br>&nbsp;
+<br>&nbsp;
+<p><a NAME="GETTINGSTARTED"></a><b><font color="#3366FF"><font size=+1>Getting
+Started</font></font></b>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; Getting an L
+account</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Getting
+yourself an account for L is very simple, since if you have a Q account,
+you already have an L account. If you however don't</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; have
+a Q account, you need to get one to have an L account, since the account
+information is shared between L and Q.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For
+more information on getting a Q account, please read the QuakeNet Q-faq
+www.url.t&auml;h&auml;n.com</font>
+<p><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Now
+that you have a Q account and you're authed to Q, for more information
+on authing, please read the QuakeNet Q-faq</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; www.url.tahan.com</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You
+have an L account available, you can verify this by the <a href="#WHOAMI">WHOAMI</a>
+command.</font>
+<p><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next,
+you might want to know what L commands are available to you, use the <a href="#HELP">HELP</a>
+command to do this.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; Getting L for
+a channel</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; So,
+you want L for your channel ?</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; First,
+you'll need an L account, read the information above on how to get one.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Second
+you should do something that we haven't decided yet, perhaps /msg o requestl
+#channel ?</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; Getting L access
+for a channel</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For
+a channel that already has L on it, getting the access requires you to
+contact either the channel owner (user with +n flag for the</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; channel)
+or a channel master (user with +m flag for the channel) and ask him/her
+to give you access for the channel.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; Giving L access
+for a channel</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If
+you have L on a channel and either flag +n or +m, you can add new users
+to the channel using the <a href="#CHANLEV">CHANLEV</a> command.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If
+the user has no previous access for the channel, he/she is automatically
+added to&nbsp; the channels access list.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; Removing user
+from a channel</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If
+you have L on a channel and either flag +n or +m, you can remove a user
+from the channel access list by removing</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; all
+access flags from him/her for the channel. L automatically removes a user
+without any flags for the channel.</font>
+<p><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You
+can also remove yourself from any channel you've been given access to by
+removing all your flags using</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the
+<a href="#CHANLEV">CHANLEV</a>
+command like you were a channel owner or master.</font>
+<p><a NAME="NICK"></a><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp;
+Dealing with users as command parameter</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For
+commands that require a user as a parameter L uses the same syntax as in
+Q.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Whenever
+it reads "nick" in the command parameter list, it can be either of these
+two things:</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nick,
+the nick of an online user, L automatically retrieves the users account
+if the user is authed.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #nick,
+the authname of an online or off-line user, if the user is not online,
+you need to use this format to change any flags for the user,</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To
+acquire the authname of an online user use the <a href="#WHOIS">WHOIS</a>
+command.</font>
+<br>&nbsp;
+<br>&nbsp;
+<p><a NAME="COMMANDS"></a><b><font color="#3366FF"><font size=+1>L Commands</font></font></b>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; About</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Following
+is a complete list of all L commands with their explanations and some examples.
+You can see the L commands list</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; by
+using the <a href="#HELP">HELP</a> command. All the information here is
+available directly from L as well, see the <a href="#HELP">HELP</a> command
+for more</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; information.
+Most commands are simple, and obvious to anyone with any Q experience.</font>
+<p><a NAME="WHOAMI"></a><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp;
+WHOAMI</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHOAMI</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tells
+you the information L has on you. This information includes your authname,
+your global authlevel (should be 1) and any channel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; access
+that you have. The access list includes all channels that you have flags
+on.</font>
+<br>&nbsp;
+<p><a NAME="WHOIS"></a><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp;
+WHOIS</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WHOIS
+nick</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tells
+you information about a user. The information includes the users authname,
+his global authlevel aswell as a limited channel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; access
+list.If authname was used as argument then all users authed under that
+authname are listed.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please
+read <a href="#NICK">Dealing with users as command parameter</a> for more
+information about the nick parameter.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Unlike
+in the current Q version, the channel access list is limited so that only
+channels that you and the target user both have access to</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; are
+printed. If no such channels exists, then no channel access list is printed.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This
+command is especially useful for getting the authname for an online user
+so that his flags can be changed even when he/she</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is
+off-line from IRC.</font>
+<p><a NAME="HELP"></a><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp;
+HELP</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HELP</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HELP
+command_name</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This
+is the general help command for L. When called without any arguments, all
+commands available to you are printed. For</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; more
+information on any command, call help with the command name as argument,
+this prints you a short description of</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the
+command. Any information available with this command, is also available
+on this manual.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#33CCFF">EXAMPLE:</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HELP deopall</font>
+<br>&nbsp;
+<p><a NAME="SHOWCOMMANDS"></a><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp;
+SHOWCOMMANDS</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SHOWCOMMANDS</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Same
+as HELP without any arguments, shows all L commands available to you.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For
+more information, please see the <a href="#HELP">HELP</a> command.</font>
+<p><a NAME="OP"></a><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp;
+OP</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OP
+#channel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gives
+you mode +o (channel operator) for the the channel specified. You need
+to have the flag +o for the channel you intend to</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; use
+this command on. This command cannot be used to set the mode +v to anyone
+other than yourself</font>
+<p><a NAME="VOICE"></a><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp;
+VOICE</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VOICE
+#channel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gives
+you mode +v (also known as voice) for the channel specified. You need to
+have the flag +v for the channel you intend to use</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this
+command on. This command cannot be used to set the mode +v to anyone other
+than yourself.</font>
+<p><a NAME="DEOPALL"></a><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp;
+DEOPALL</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DEOPALL
+#channel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This
+command deops (sets mode -o to) every channel operator (users with mode
++o for the channel) not including L itself.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You
+need to have atleast the flag +o for the channel you intend to use this
+command on.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Useful
+if there's a user on the channel with mode +o without having a proper L
+access for the channel and keeps a known</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; user
+from entering the channel.</font>
+<p><a NAME="VERSION"></a><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp;
+VERSION</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; VERSION</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This
+command tells you the current L version aswell as the build time (when
+L was compiled) and authors of L</font>
+<p><a NAME="UNBANALL"></a><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp;
+UNBANALL</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UNBANALL
+#channel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This
+command removes all bans (mode +b's) from a channel. You need to have atleast
++o flag for the channel you intend to use this</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; command
+on. This command is Especially useful if there's a ban preventing you from
+entering a channel that you have access to.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Removing
+a specific ban from a channel is impossible with L, you can only remove
+all bans at once.</font>
+<p><a NAME="CLEARCHAN"></a><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp;
+CLEARCHAN</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CLEARCHAN
+#channel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This
+command is used to remove all channelmodes preventing entry to the channel,
+or sending to the channel. When called,</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; channelmodes
++i, +k, +l and +m are removed, +n, +t, +s/p are not affected. You need
+to have atleast the +o flag for the</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; channel
+you intend to use this command on. Useful if there are modes preventing
+you from entering a channel that you have access to.</font>
+<p><a NAME="CHANLEV"></a><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp;
+CHANLEV</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CHANLEV
+#channel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CHANLEV
+#channel nick flags</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This
+is the most complicated of all L commands, and so the most important one.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This
+command is used to change users access flags for a channel, including adding
+users to channel access list aswell as removing</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; them.
+To change the chanlev for any channel you need to have either the owner
+(+n) or master (+m) flag for the channel.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please
+read <a href="#NICK">Dealing with users as command parameter</a> for more
+information about the nick parameter.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If
+called without the nick or flags parameter, the channel access list is
+printed, this includes all users that have access to the channel.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You
+need to have an access to the channel before you can print the access list
+for it.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To
+set a flag, use +flag_character and to unset a flag use -flag_character,
+these can be combined and multiple flags can be set</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; with
+just one call to the command, see the examples part for this command.</font>
+<p><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; When
+you give a flag to user that's not known on the channel, L adds the user
+automatically to the channel access list.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; When
+you remove all flags from a user that's known on the channel, L removes
+the user from the channel access list.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To
+remain on the channel access list, a user must have some of flags +v, +m,
++n or +o.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Having
+only +a or +g causes the user to be removed.</font>
+<p><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Supported
+channel flags:</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</font><font color="#33CCFF">+a</font><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;
+Auto, if an authed user has +o/+v access flag for a channel, the corresponding
+modes are set when the user joins the channel.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</font><font color="#33CCFF">+g</font><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;
+Auto, same as +a but only works with +v flag and has no effect for a possible
++o flag</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</font><font color="#33CCFF">+o&nbsp;&nbsp;&nbsp; </font><font color="#FFFFFF">Channel
+operator, can have the mode +o for the channel.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</font><font color="#33CCFF">+m&nbsp;&nbsp; </font><font color="#FFFFFF">Channel
+master. Can add and remove users for the channel, aswell as change their
+access flags. A master can't set or unset the</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+flags +n/+m for a channel and thus cannot remove an existing channel master
+(apart from himself of course).</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+only give this flag to people you trust.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</font><font color="#33CCFF">+n&nbsp;&nbsp;&nbsp; </font><font color="#FFFFFF">Channel
+owner. Has full access for the channel. Can add and remove users for the
+channel aswell as change their access flags.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Unlike channel master, the channel owner can set and unset flags +n/+m
+for any user on the channel.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Do not give +n access for too many users on your channel, instead give
+only +m access if needed.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</font><b><font color="#FF0000">!!! Only give owner access to people you
+fully trust, any channel owner can 'takeover' the channel at any time !!!</font></b>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</font><font color="#33CCFF">+v&nbsp;&nbsp;&nbsp; </font><font color="#FFFFFF">Voice,
+can have mode +v for the channel</font>
+<p><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To
+remove yourself from a channel you've been given access to, simply unset
+all channel flags for yourself,</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this
+causes L to automatically remove you from the channel, see the last example.</font>
+<p><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font><font color="#33CCFF">EXAMPLE</font><font color="#FFFFFF">:</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CHANLEV #mychannel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CHANLEV #mychannel myfriend +aov</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CHANLEV #mychannel #myfriendsauthname +aom-oa+gm-g+aom</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+CHANLEV #somechannel mynick -agovnm</font>
+<br>&nbsp;
+<br>&nbsp;
+<p><a NAME="FAQ"></a><b><font color="#3366FF"><font size=+1>Common Problems
+and FAQ</font></font></b>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; I want L for
+my channel, what should I do ?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please
+read the <a href="#GETTINGSTARTED">Getting started</a> part of this manual</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; I want to give
+my friend access for my channel with L, how ?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Please
+read the <a href="#GETTINGSTARTED">Getting started</a> part of this manual</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; How can I give
+voice to every user joining the channel with L ?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Like
+Q, L has no general autovoice feature that would give +v to every people
+when they join the channel.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You
+need to either have a bot to do this or write a small client script for
+to do it.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; I have L but
+I can't join my channel (key, invite, banned etc.), what can I do ?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If
+your channel is either full, invite only or needs a key you should use
+the <a href="#CLEARCHAN">CLEARCHAN</a> command.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If
+you're banned from your channel, use the <a href="#UNBANALL">UNBANALL</a>
+command. If you still can't join the channel, there might be a</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; channel
+operator or a bot resetting the modes or bans when L removes them, use
+<a href="#DEOPALL">DEOPALL</a>
+to remove all channel operators</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; and
+use <a href="#CLEARCHAN">CLEARCHAN</a> and <a href="#UNBANALL">UNBANALL</a>
+again.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; My channel has
+been taken over and I can't join it, I have L on the channel, what now
+?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reclaiming
+your channel with L is very easy, see the <a href="#DEOPALL">DEOPALL</a>,
+<a href="#CLEARCHAN">CLEARCHAN</a>
+and <a href="#UNBANALL">UNBANALL</a> commands and use them all for</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; your
+channel, if you still can't join the channel, join the channel #help and
+explain your problem.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; Can L protect
+the topic on my channel ?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Unfortunately
+no, L has no topic support like Q does, so apart from keeping the channel
+topic there while all users are offline, L</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; doesn't
+offer anykind of protection for the topic and you can't set or get the
+channel topic using L.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; Can L protect
+the channel operators from deop like Q does ?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Unlike
+Q, L has no channel operator protection, L does not interfere with any
+modes changed for the channel.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; Can L give a
+welcome message for users joining the channel like Q does ?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No,
+L doesn't have anykind of welcome message support, so if you want to have
+a welcome message for your channel, you have</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; to
+either get a normal bot or use a client script for it.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; Can I add custom
+scripts for L ?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L
+has no support for scripts of anykind, so any features not on L can't be
+added to it by a user or even by an operator.</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If
+you want to have any additional functions for your channel, consider getting
+a normal bot (perhaps an eggdrop) or using a client script.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; I'm no longer
+the owner of my channel, help !</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; There
+are three possible causes for this, first make sure that you're authed
+with the same name to Q as you were when you still had</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the
+owner access. Second, some other owner for the channel might have removed
+your owner flag. Third your user account from L</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; might
+have been removed by an operator. We recommend you to talk to other owners
+of your channel first and if you still can't find</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a
+proper cause for the missing +n flag, join the channel #help and explain
+your problem.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; L says my channel
+is suspended, what can I do ?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Channels
+are suspended by the IRC operators when there has been a violation of the
+network rules or there's a major problem</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; with
+the channel. If your channel is suspended, you should talk to other channel
+owners to see if any of them know what could</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; have
+caused the channel to be suspended. If you know why the channel is suspended
+and think that there has been a</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; misunderstanding,
+please mail
+<a href="mailto:info@quakenet.org">info@quakenet.org</a> and
+explain the situation. If you have no idea why the channel is suspended,</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; visit
+the channel #feds and explain your problem or mail <a href="mailto:info@quakenet.org">info@quakenet.org</a></font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; Our channel has
+no owner, what can I do ?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If
+for any reason, there isn't a user with +n flag on the channel access list
+(see <a href="#CHANLEV">CHANLEV</a> command), have a user with +m flag
+for the</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; channel
+go to channel #feds and explain the situation to an operator. If there
+aren't even users with +m flag on the access list, then</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a
+user with +o flag will do. Channel ownership is not given to a user with
+only +o flag if there's a user with +m flag on the channels</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; access
+list, if a +m user isn't online, you have to wait for him to go ask for
+the ownership.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; I can't be added
+/ I can't add my friend to a channel, what's wrong ?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L
+has a limited amount of channels/user aswell as users/channel. If the channel
+is full, you have to remove a user from the channel</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; before
+you can add a new one, and if the user you're trying to add already is
+on maximum allowed channels, he/she has to remove</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; his
+access from one of the channels before he can be added to your channel.</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; Someone added
+me to a horde of channels and now my channel list looks bad, what can I
+do ?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; See
+<a href="#CHANLEV">CHANLEV</a>
+command for information on removing your access for channels</font>
+<p><font color="#33CCFF"><font size=+1>&nbsp;&nbsp;&nbsp; I have a problem/question
+that's not listed here, what should I do ?</font></font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If
+you can't find a solution to your problem from this manual or you have
+a question that's not answered here, please</font>
+<br><font color="#FFFFFF">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; do
+not hesitate to join the channel #help and explain your problem or ask
+your question.</font>
+<br>&nbsp;
+</body>
+</html>

@@ -1,0 +1,3 @@
+/msg L ADDUSER #channel nick
+Add a user to a channel. You should use CHANLEV to view/set
+the flags, but this command adds a user with default flags +ao

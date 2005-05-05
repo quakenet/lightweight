@@ -1,0 +1,3 @@
+USERLIST pattern
+Searches online users (nicks) for a matching pattern. Output is limited to
+100 entries.

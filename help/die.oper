@@ -1,0 +1,4 @@
+DIE <random garbage>
+Tells the service to save and exit. As a safety precaution
+it requires the requester to enter at least 50 characters
+of arbitrary input to protect from accidental use.

@@ -1,0 +1,70 @@
+lightweight
+
+
+License:
+
+GPL, see the LICENSE file.
+
+
+Installation:
+
+See the COMPILATION file.
+
+
+Purpose:
+
+lightweight is a chanserv for ircu's p10 protocol used by QuakeNet (and Undernet - thanks 
+for making your ircd GPL'ed guys, it rocks). lightweight is written to take the main load 
+off of QuakeNet's older chanserv Q. The main goal for lightweight is to take over the large 
+amount of smaller clanchannels that only use a limited set of Q's functionality. As a small 
+bonus lightweight will probably also make life easier for the large amount of non-gaming 
+channels that QuakeNet has, as lightweight will be added automatically to channels 
+requesting it (a big problem on QuakeNet today is that Q is restricted to gamingrelated 
+channels only, and hence the adding of Q to a channel require a check for if the channel is 
+gaminrelated).
+
+
+Basis:
+
+QuakeNet has grown rapidly the last couple of years (see www.netsplit.de). We're 
+approximately 75k users online simultaneously every night and have a steady 50k channels. Q 
+sits in about half of these channels.
+
+
+Features:
+
+The set of features is supposed to be very limited as lightweight will have to be held 
+resourcelight (hence lightweight) to hold the majority of QuakeNet channels. Planned 
+features for lightweight is:
+- Basic auth and command system for users.
+- Channelregistration through a webinterface.
+- Opping/voicing of authed users in corresponding registered channels.
+- Clearing channel modes deopping all users (through another service).
+- Welcome messages (optional).
+- Topic preservations (optional).
+
+
+Implementation:
+
+As lightweight has to be resource light, some tricks has been done to ensure this.
+The most important difference from the other services on QuakeNet and from normal chanservs 
+is that lightweight does not keep track of the current channels on the network nor the 
+user<->channel relationship. This is to save both memory and processor.
+To save burstsize lightweight has been designed to not join any channels. This might confuse 
+users at first who are used at having Q join a channel to show that its there, but as this 
+design has been implemented at other networks with succes users should be able to get used 
+to it.
+The general description of datastructures can be found in datastructures.txt.
+
+
+Programmers and Copyrightholders:
+
+Rasmus J. Have aka. Bigfoot
+David Mansell aka. splidge
+Raimo Nikkilä aka. strutsi
+Fredrik Söderblom aka. froo
+
+
+Thanks to:
+
+The QuakeNet Users, The QuakeNet Helpers and The QuakeNet Operteam.

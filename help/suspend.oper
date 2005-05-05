@@ -1,0 +1,4 @@
+SUSPEND #channel reason
+Suspends a channel with a reason. A suspended channel can not be used by
+users but the channel users and flags are kept.
+

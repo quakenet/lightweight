@@ -1,0 +1,2 @@
+/msg L REQUESTOWNER #channel
+Request ownership of a channel on which there are no owners.

@@ -1,0 +1,3 @@
+/msg L UNBANALL #channel
+Removes all bans (modes +b) from a channel. You need to have the access
+flag +o for the channel for this command to work.

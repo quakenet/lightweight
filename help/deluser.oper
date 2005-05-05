@@ -1,0 +1,2 @@
+DELUSER [nick]
+Removes a user from L, all channel flags are cleared for the user. 

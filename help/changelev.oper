@@ -1,0 +1,3 @@
+CHANGELEV [user] [level]
+Changes the global auth level for a given user. The new auth level has to
+be less than your auth level.

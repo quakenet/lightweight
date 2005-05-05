@@ -1,0 +1,8 @@
+CHANLEV #channel [user] [flags]
+Changes a users chanlev for a channel. If no user or flags are specified,
+then the channels user list is printed. If the user has no flags for the
+channel, the user is added to the channel and if all flags are removed,
+the user is removed aswell. Supported flags are:
+a        Auto, for +v and +o         g      Auto, only for +v
+m        Master of channel           n      Owner of channel
+o        Mode +o                     v      Mode +v

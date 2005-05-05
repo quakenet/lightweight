@@ -1,0 +1,6 @@
+CLEANUPDB [-nv]
+Tells the service to remove empty and expired channels.
+If the '-n' option is supplied, the service will not actually
+remove anything, just show what would have been done.
+And if the '-v' option is used, every channel removed is
+displayed at removal.

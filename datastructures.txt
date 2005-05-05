@@ -1,0 +1,79 @@
+There are four major datastructures in lightweight that needs a bit of
+explanation:
+
+Main user database
+- This datastructure holds all the currently active users on the network.
+  It is organised by first a servernumeric order and then a usernumeric.
+  Alternatively the entries in this structure can be accessed through a
+  hashed list of linked lists of nicks.
+  So the two entries to these records are:
+  1. An array of length 4096 representing each server, each entry is a pointer
+  to a dynamically allocated array of length equal to the corresponding
+  servers maxusers. Each entry in these dynamically allocated arrays is a
+  pointer to a dynamically allocated user struct.
+  Doing it this way ensures a O(1) lookup of users from the usernumeric,
+  and this is smart as commands often comes prefixed with the usernumeric
+  as sender, and not the nick.
+  2. An array of length HASHMAX where each entry points to the start of a
+  linked list of user structs. The user structs are placed randomly in the
+  linked list which is at the value that corresponds to the users nicks
+  hashed value.
+
+  entry: 1. usertablepointer and 2. nickhashtable.
+
+Main account database
+- This structure holds all the accounts known to lightweight. It is organised
+  just like the second way the user database is organised.
+
+  entry: accounthashtable.
+
+Main channel database
+- This structure holds all the channels known to lightweight (this is _not_
+  the channels that currently exists on the network, we dont give a shit
+  about those). It is organised just like the account database.
+
+  entry: channelhashtable.
+
+Servertree
+- This structure holds information about the servertree to use when netsplits
+  occur.
+  When a server sends a SQUIT, run through the whole list of servers and
+  act as if the servers with the quitting one as parent had sent a SQUIT
+  (notice the recursion here). Then act as if all the servers users QUIT
+  and finally remove the server from the servertree and free it.
+  It is wellknown that this is very bad performancewise, but the number of
+  servers is limited and it happends very seldom. Live with it...
+
+  entry: servertree
+
+Savefile (called accounts.0 pr. default)
+- This is the way the static of the above structures gets saved to disk.
+  The file begins with a list of the accounts known to L. Each line consist
+  of (the linedata are between the quotes):
+
+  "<accountname> <authlevel> <lastauth>"
+
+  where accountname is a string of chars allowable in normal nicks,
+  authlevel is an integer between 1 and 255 and lastauth is a unix timestamp.
+  Following this is a single line:
+
+  "--- End of users"
+
+  After the users comes the channels. A channel is represented like this:
+  First a single line with the static channeldata:
+
+  "<channelname> <addedby-account> <founder-account> <lastused-timestamp>"
+
+  And then multiple line (max. USERSPERCHANNEL) each on the form:
+
+  "<accountname> <flags>"
+
+  (flags is here a fixed width string of 8 chars, each representing
+  a channelflag).
+  After all accounts has been listed, a single line shows the end of the
+  channel:
+
+  "--- End of channel <channelname>"
+
+  entry: there is no direct access to the files while the program run,
+	 all access happens through restoredbfromdisk.c and savedbtodisk.c.

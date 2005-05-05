@@ -1,0 +1,6 @@
+/msg L WHOIS [nick]
+This tells you the user information of another user, the information
+includes the auth name of the user, global auth level, date of last auth
+and channels that the user is known on. Note that only channels that you
+have access to aswell are printed. Use nick for online users and #authname
+for offline users.

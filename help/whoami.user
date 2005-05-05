@@ -1,0 +1,4 @@
+/msg L WHOAMI
+Tells you your user information for L, this includes your auth name,
+your global auth level, the date of your last auth and all channels that
+you have access to.

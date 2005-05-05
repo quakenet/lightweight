@@ -1,0 +1,434 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Karsten A. Luetkewitz">
+   <meta name="GENERATOR" content="Glimmer/vim">
+   
+<style>
+<!-- 
+body {margin-left:35px}
+h1 {color:#3366FF;font-weight:bold}
+h2 {color:#33CCFF;font-weight:bold}
+h3 {color:#3366FF;margin-left:-25px}
+h4 {color:#33CCFF;margin-left:-20px}
+-->
+</style>
+   
+   <title>QuakeNet L ChanServ, Deutsches Handbuch</title>
+</head>
+<body text="#FFFFFF" bgcolor="#000000" link="#66FFFF" vlink="#551A8B" alink="#FF99FF">
+<center>
+
+<a name=index></a><h1>Offizielles QuakeNet L ChanServ Handbuch</h1>
+
+<h2>Für L, Version 1.00</h2>
+
+<h3>
+<a href=#index><b>Index</b></a><br><br>
+<a href=#intro>Einführung</a><br>
+<a href=#steps>Die ersten Schritte</a><br>
+<a href=#commands>Befehle</a><br>
+<a href=#faq>Bekannte Probleme und FAQ</a><br>
+</h3>
+
+</center>
+
+<br><br><br>
+
+<a name=intro></a><h3>Einführung</h3>
+
+<h4>Allgemeine Informationen</h4>
+L ist der neue QuakeNet channel service (ChanServ), er ist speziell auf die momentanen und zukünftigen
+Bedürfnisse des QuakeNet's zugeschnitten. L's Kommandointerface ist sehr ähnlich dem des bereits 
+existierendem Channel-Bot Q. Einige L Funktionen sind jedoch unterschiedlich zu denen unseres Q's; 
+selbst falls Du ein relativ erfahrener Q Benutzer bist empfehlen wir dir die Lektüre dieses Dokumentes
+um mögliche Missverständnisse und Probleme auszuschliessen. 
+
+<h4>Funktionen</h4>
+L unterstützt die folgenden Funktionen und Aufgaben, für mehr Informationen zu den Befehlen lese den "Kommandos" Teil
+dieses Handbuchs.<br><br><pre>
+     - Beschützt den Channel auch wenn alle Nutzer offline sind.
+     - Beschützt den Channel vor möglichen Übernahmeversuchen dritter.
+     - Setzt die Modi +v und +o für bekannte Nutzer
+     - Kann alle Nutzer eines Channels deoppen
+     - Kann alle Channelmodi die ein Betreten verhindern entfernen
+     - Kann alle Bans eines Channels entfernen</pre>
+     
+<h4>Unterschiede zwischen L und Q</h4>
+Obwohl sich beide ähneln haben Q und L Unterschiede; einige der Funktionen die Q beherrscht sind nicht in L 
+vorhanden. Die Hauptunterschiede lassen sich aus folgender Tabelle am einfachsten erschliessen:<br><br><br>
+
+<center><table BORDER COLS=3 WIDTH="80%" >
+
+<tr>
+<td><div align=right>Funktion</div></td>
+<td><div align=right>Q</div></td>
+<td><div align=right>L</div></td>
+</tr>
+
+<tr>
+<td>Kann nicht gekickt, gebannt oder deopped werden</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Ja</div></td>
+</tr>
+
+<tr>
+<td>Verwaltet den Channel während alle Nutzer offline sind</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Ja</div></td>
+</tr>
+
+<tr>
+<td>Gibt bekannten Nutzern +o/+v</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Ja</div></td>
+</tr>
+
+<tr>
+<td>Unterstützt Nutzerflags</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Ja</div></td>
+</tr>
+
+<tr>
+<td>Kann Nutzer bannen</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Nein</div></td>
+</tr>
+
+<tr>
+<td>Verwaltet das Channeltopic</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Nein</div></td>
+</tr>
+
+<tr>
+<td>Verwaltet eine Willkommensnachricht</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Nein</div></td>
+</tr>
+
+<tr>
+<td>Kann alle Channelmodi entfernen</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Ja</div></td>
+</tr>
+
+<tr>
+<td>Unterstützt Channelflags</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Nein</div></td>
+</tr>
+
+<tr>
+<td>Kann auf Kommando alle Channeloperatoren deoppen</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Ja</div></td>
+</tr>
+
+<tr>
+<td>Kann alle Bans eines Channels entfernen</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Ja</div></td>
+</tr>
+
+<tr>
+<td>Kann Nutzer in +i Channels einladen</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Nein</div></td>
+</tr>
+
+<tr>
+<td>Kann das Nutzerlimit (+l) verwalten</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Nein</div></td>
+</tr>
+
+<tr>
+<td>Kann ein Channelpasswort (+k) verwalten</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Nein</div></td>
+</tr>
+
+<tr>
+<td>Kann sicherstellen das nur bekannte Nutzer die Modi +o/+v erhalten (Bitchmodus)</td>
+<td><div align=right>Ja</div></td>
+<td><div align=right>Nein</div></td>
+</tr>
+
+</table></center>
+
+<br><br><br>
+
+<a name=steps></a><h3>Die ersten Schritte</h3>
+
+<h4>Einen L-Zugang anlegen</h4>
+Einen L-Zugang anzulegen ist sehr einfach - denn: sofern du bereits einen Q-Zugang besitzt, hast du auch einen L-Zugang.
+Falls du allerdings keinen Q-Zugang besitzt, wirst du einen anlegen müssen um L nutzen zu können, da L und Q sich die
+Informationen teilen. Lese bitte das entsprechende <a href="http://www.quakenet.org/qfaq">FAQ</a> wenn du mehr Hilfe 
+zum Anlegen eines Q-Zugangs benötigst.<br><br>
+
+Jetzt, da du einen Q-Zugang besitzt und dich bei Q identifiziert hast, kannst du bereits L nutzen. Bitte lese trotzdem 
+vorher das <a href="http://www.quakenet.org/qfaq">Q-FAQ</a>; da dann viele hier beschriebene Dinge einfacher zu verstehen sind.<br><br>
+
+Um zu bestätigen, dass du einen L-Zugang besitzt nutze das WHOAMI Kommando (siehe weiter unten).<br><br>
+
+Du möchtest vielleicht sehen welche Befehle dir zur Verfügung stehen, nutze dazu das HELP Kommando.<br><br>
+
+<h4>L zu einem Channel hinzufügen</h4>
+Du möchtest also L für deinen Channel?<br>
+Zuerst benötigst du einen L-Zugang (siehe oben).<br>
+Danach musst du etwas machen über das wir uns noch nicht einig sind, /msg O requestL ?<br><br>
+
+<h4>Flags für einen Channel mit L erhalten</h4>
+Um Zugang und Flags für einen Channel mit L zu erhalten musst du entweder einen Besitzer (Nutzer mit +n Flag) 
+oder einen Master (Nutzer mit +m Flag) kontaktieren und danach fragen zum Channel hinzugefügt zu werden.<br><br>
+
+<h4>Zugang / Flags zu einem Channel gewährleisten</h4>
+Sofern L in deinem Channel ist und du entweder das +n (Besitzer) oder +m (Master) Flag hast, kannst du Nutzer mit 
+dem CHANLEV Kommando hinzufügen oder entfernen. L wird jeden Nutzer dem du Flags gibst automatisch zur Zugangsliste 
+für den Channel hinzufügen.<br><br>
+
+<h4>Einen Nutzer von der Zugangsliste entfernen</h4>
+Sofern L in deinem Channel ist und du entweder das +n (Besitzer) oder +m (Master) Flag hast, kannst du Nutzer entfernen, 
+indem du alle Zugangsflags des Nutzers für deinen Channel löscht. L wird jeden Nutzer ohne Flags automatisch von deiner 
+Zugangsliste für den Channel entfernen.<br><br>
+
+Du kannst dich ebenfalls selbst von jeder Zugangsliste für jeden Channel entfernen als wenn du Master oder Besitzer wärst;
+nutze dazu das CHANLEV Kommando.
+<br><br>
+
+<h4>Nutzernamen als Befehlsparameter nutzen</h4>
+Für Befehle die einen Benutzernamen als Parameter erfordern nutzt L die gleiche Syntax wie Q.<br>
+Jedes Kommando in der untenstehenden Liste, das "Nick" als Parameter erlaubt, kann auf zwei Arten genutzt werden:<br>
+Nick, der Nickname eines Nutzers der online ist und sich bei Q identifiziert hat, L findet in diesem Fall automatisch 
+den Benutzernamen von "Nick".<br>
+#Nick, Der Benutzername eines Nutzers der on- oder offline ist. Falls der Nutzer nicht online sein sollte musst du dieses 
+Format nutzen um seine Flags zu ändern.<br>
+Um den Benutzernamen eines Nutzers zu erfahren der online ist verwende das WHOIS Kommando<br>
+
+<br><br><br>
+
+<a name=commands></a><h3>L Befehle</h3>
+
+<h4>Generelle Informationen</h4>
+Die folgende Liste spiegelt alle L Befehle mit Beschreibungen und Beispielen wieder. Du kannst die L
+Kommandoliste auch über den SHOWCOMMANDS Befehl abrufen; alle Informationen hier sind auch direkt über das L
+Kommando "HELP" verfügbar. Die meisten Befehle sind simpel zu erlernen und sollten leicht verständlich für 
+jeden Q-Nutzer sein.<br><br>
+
+<h4>WHOAMI</h4>
+<pre>WHOAMI</pre>
+Gibt die Informationen, die L über dich besitzt, aus. Dies schliesst deinen Benutzernamen, globalen Authlevel
+(1) und alle Flags die du für Channels besitzt ein.<br><br>
+ 
+
+<h4>WHOIS</h4>
+<pre>WHOIS Nick</pre>
+Gibt Informationen über einen Nutzer aus. Dies schliesst den Benutzernamen, den globalen Authlevel wie auch
+eine begrenzte Channel-Zugriffsliste ein. Bitte lies den "Nutzernamen als Befehlsparameter nutzen" Abschnitt um
+mehr Informationen über den "Nick" Parameter zu erhalten. Anders als Q wird L dir nur die Channels zeigen,
+zu denen sowohl du, als auch "Nick" Zugriff besitzen. Sollte dies auf keinen Channel zutreffen wird L keine 
+Channels ausgeben. Der "WHOIS" Befehl ist besonders sinnvoll um den Benutzernamen eines Nutzers zu erfahren 
+um dessen Zugriffsrechte zu ändern, auch wenn dieser nicht online ist.<br><br>
+
+<h4>HELP</h4>
+<pre>
+HELP
+HELP Kommandoname</pre>
+Der Hilfebefehl für L. Ohne einen Parameter aufgerufen listet dieses Kommando alle dir verfügbaren Befehle 
+auf. Um mehr Informationen über ein bestimmtes Kommando zu erhalten rufe den "HELP" Befehl mit dem Kommandonamen 
+als Parameter auf. Alle Informationen die der HELP Befehl besitzt sind auch in diesem Handbuch vorhanden.<br><pre>
+       BEISPIEL:
+       HELP deopall</pre><br>
+ 
+
+<h4>SHOWCOMMANDS</h4>
+<pre>SHOWCOMMANDS</pre>
+Gleicht dem HELP Befehl, nimmt jedoch keine Parameter an; listet alle dir verfügbaren Kommandos auf.<br>
+Lese den HELP-Befehlsabschnitt für mehr Informationen.<br><br>
+
+<h4>OP</h4>
+<pre>OP #channel</pre>
+Gibt dir Channel-Operator Status (Modus +o) für den angegebenen Channel. Du benötigst das +o Flag für den 
+Channel auf den du das Kommando anwenden möchtest. Dieser Befehl kann nur auf dich selbst angewendet werden.
+<br><br>
+
+<h4>VOICE</h4>
+<pre>VOICE #channel</pre>
+Gibt dir Voice Status (Modus +v) für den angegebenen Channel. Du benötigst das +v Flag für den 
+Channel auf den du das Kommando anwenden möchtest. Dieser Befehl kann nur auf dich selbst angewendet werden.
+<br><br>
+
+<h4>DEOPALL</h4>
+<pre>DEOPALL #channel</pre>
+Dieser Befehl deopped alle Channel-Operatoren (Modi -o auf alle Ops angewendet) ausser L. Du benötigst das +o 
+Flag (oder höher) um dieses Kommando nutzen zu können.<br>
+Sinnvoll im Falle das ein Nutzer Operator-Status im Channel besitzt ohne entsprechende Zugriffsrechte bei L;
+bzw. einen anderen Nutzer vom Betreten des Channels abzuhalten versucht.
+<br><br>
+
+<h4>VERSION</h4>
+<pre>VERSION</pre>
+Dieser Befehl gibt die momentane L Version, das Kompilationsdatum und L's Autoren aus.<br><br>
+
+<h4>UNBANALL</h4>
+<pre>UNBANALL #channel</pre>
+Dieser Befehl hebt alle Bans (Modus +b) für einen Channel auf. Du benötigst das +o Flag (oder höher) um dieses 
+Kommando nutzen zu können. Dieser Befehl ist besonders sinnvoll falls ein Ban dich vom Betreten eines Channels 
+abhält zu dem du Zugang besitzt.<br>
+Einen bestimmten Ban mit L aufzuheben ist nicht möglich; du kannst nur alle Bans auf einmal aufheben lassen.
+<br><br>
+
+<h4>CLEARCHAN</h4>
+<pre>CLEARCHAN #channel</pre>
+Dieser Befehl ist bestimmt alle Channel-Modi aufzuheben die ein Betreten - oder Sprechen des/im Channel 
+verhindern. Das Kommando hebt die Channel-Modi +i, +k, +l, sowie +m für den spezifizierten Channel auf; die 
+Modi +n, +t, +s (bzw. +p) bleiben unberührt. Du benötigst das +o Flag (oder höher) um diesen Befehl nutzen 
+zu können. Sinnvoll sofern ein Channel-Modus dich vom Betreten eines Channel abhält zu dem du Zugang besitzt.
+<br><br>
+
+<h4>CHANLEV</h4>
+<pre>
+CHANLEV #channel
+CHANLEV #channel Nick Flags</pre>
+
+Das komplizierteste und wichtigste L-Kommando. Die Syntax gleicht der des Q Äquivalents CHANLEV.<br><br>
+
+Dieser Befehl wird genutzt um die Flags für einen Nutzer zu ändern, einen Nutzer hinzuzufügen oder ihn zu löschen.
+Um das CHANLEV (die Zugangsliste für den Channel) zu ändern benötigst du mindestens das +m (Master) oder das +n 
+(Besitzer) Flag. Bitte lies den "Nutzernamen als Befehlsparameter nutzen" Teil diese Handbuches für nähere 
+Informationen zum "Nick" Parameter. Ohne den "Nick" oder "Flags" Parameter aufgerufen zeigt der CHANLEV Befehl 
+die momentane Liste von bekannten Nutzern (Nutzer die Zugang zum Channel über L haben) für den angegebenen Channel.
+<br><br>
+
+Bitte beachte das du nur die Zugangsliste einsehen kannst wenn du auf selbiger bereits mit Flags stehst.<br><br>
+
+Um Flags für einen Nutzer hinzuzufügen nutze den "Flags" Parameter gefolgt von +Flagzeichen, um Flags zu entfernen
+verwende -Flagzeichen; Flagzeichen können kombiniert werden - daher lassen sich mehrere Flags gleichzeitig setzen 
+oder entfernen, siehe untenstehende Beispiele.<br><br>
+
+Wenn du einem Nutzer, der nicht auf der Zugangsliste des Channels bekannt ist, Flags gibst, fügt L ihn automatisch 
+hinzu. Löscht du alle Flags eines Users auf der Zugangsliste, entfernt L automatisch den Nutzer von der Liste bekannter
+Nutzer für den Channel.<br><br>
+
+Um nicht von der Zugangsliste gelöscht zu werden braucht ein Nutzer mindestens eines der folgenden Flags:
++v, +o, +m, +n<br>
+Nur +a oder +g auf der Zugangsliste zu besitzen führt zur automatischen Löschung des Users vom CHANLEV für den
+betreffenden Channel.<br><br>
+
+Unterstützte Flags:<pre>
+
+ +a    Auto, wenn ein identifizierter Nutzer mit +o/+v Flags den Channel betritt 
+       werden entsprechende Modi automatisch gesetzt.
+          
+ +g    Auto, gleicht dem +a Flag, allerdings nur gültig für +v Nutzer.
+    
+ +o    Channel Operator, kann den Modus +o von L erhalten.
+    
+ +m    Channel Master. Kann Nutzer hinzufügen, entfernen und Flags ändern. Ein Master 
+       kann die Flags +n und +m nicht setzen oder entfernen (ausser die Flags für sich
+       selbst entfernen). Gebe das +m Flag nur Vertrauten.
+          
+ +n    Channel Besitzer. Hat vollen Zugriff auf den Channel. Kann jeden Nutzer hinzufügen,
+       entfernen und alle Flags ändern. Anders als der Channel-Master kann der -Besitzer 
+       die Flags +n und +m verteilen, ändern und entfernen. Halte die Nummer von +n Nutzern 
+       klein, +m reicht in den meisten Fällen vollkommen aus.
+
+       !!! Gebe niemals Fremden +n, jeder Nutzer mit +n kann zu jeder Zeit alle anderen 
+       Flags entfernen, inklusive der Flags anderer +n Nutzer !!!
+        
+ +v    Voice, kann den Modus +v von L erhalten.</pre>
+
+Um dich selbst von einem Channel zu entfernen, lösche einfach alle Flags die du zu diesem Channel besitzt, 
+siehe auch das letzte Beispiel.<br>
+
+<pre>       BEISPIELE:
+            CHANLEV #meinchannel
+            CHANLEV #meinchannel meinfreund +aov
+            CHANLEV #meinchannel #derbenutzernamemeinesfreundes +aom-oa+gm-g+aom
+            CHANLEV #irgendeinchannel meinnick -agovnm</pre>
+            
+<br><br><br>
+            
+<a name=faq></a><h3>Bekannte Probleme und FAQ</h3>
+
+<h4>Ich möchte L für meinen Channel, was muss ich machen?</h4>
+Bitte lies den "Die ersten Schritte" Teil dieses Handbuchs.<br><br>
+
+<h4>Ich möchte meinem Freund Zugriff für meinen Channel mit L geben, was jetzt?</h4>
+Bitte lies den "Die ersten Schritte" Teil dieses Handbuchs.<br><br>
+
+<h4>Wie kann ich jedem Nutzer der meinen Channel betritt Voice (Modus +v) geben mit L?</h4>
+Ebenso wie Q besitzt L keine Autovoice-Funktion die jedem Nutzer +v beim Betreten geben würde.<br>
+Du benötigst entweder einen seperaten Bot oder ein kleines Script für deinen Client um jedem Nutzer
+Voice beim Betreten zu geben.<br><br>
+
+<h4>Ich habe einen Channel mit L, kann ihn aber nicht betreten (Key, Invite only, Banned, etc), was jetzt?</h4>
+Nutze das CLEARCHAN Kommando falls dein Channel voll (Channel is full) oder Invite only sein sollte oder nach einem 
+Key zum Betreten verlangt.<br>
+Falls du gebannt (You're banned) sein solltest nutze den UNBANALL Befehl. Sofern du immernoch nicht deinen Channel 
+betreten kannst, mag das daran liegen, dass ein Channel-Operator oder Bot sofort die Modi wieder setzt, die L versucht
+aufzuheben; nutze das DEOPALL Kommando um alle Channel-Operatoren zu deoppen (Modus -o), danach versuche es noch einmal 
+mit CLEARCHAN und UNBANALL<br><br>
+
+<h4>Mein Channel wurde übernommen (Takeover) von Fremden, ich kann meinen Channel - in dem L ist - nichtmehr 
+betreten, was jetzt?</h4>
+Deinen Channel wieder zu erlangen ist dank L sehr einfach. Bitte lese die Beschreibungen für die Kommandos 
+DEOPALL, CLEARCHAN und UNBANALL. Solltest du es trotzdem nicht schaffen nach Benutzung aller drei Befehle 
+Zugang zu deinem Channel zu erlangen joine den Channel #help und erkläre dein Problem.<br><br>
+
+<h4>Kann L mein Channel-Topic festsetzen, wie es Q kann?</h4>
+Leider nicht, L besitzt dazu keine Funktion. Ausser das Topic zu erhalten während alle Nutzer offline sind, offeriert 
+L keine Unterstützung das Topic fest zu setzen; es ist ebenfalls nicht möglich L ein Topic setzen zu lassen über einen 
+Befehl.<br><br>
+
+<h4>Kann L verhindern das Channel Operatoren deopped werden, wie es Q kann?</h4>
+Anders als Q besitzt L keine Möglichkeit das Deoppen von Channel-Operatoren zu verhindern, L greift nicht in
+Modiänderungen eines Channels ein.<br><br>
+
+<h4>Kann L eine Willkommens-Nachricht für Nutzer die den Channel betreten ausgeben, wie es Q kann?</h4>
+Nein, L besitzt keinerlei Unterstützung für eine Willkommens-Nachricht; du wirst einen seperaten Bot oder ein 
+Client-Skript einrichten müssen.<br><br>
+
+<h4>Kann ich eigene Skripte zu L hinzufügen?</h4>
+Nein, L besitzt keinerlei Unterstützung für Nutzerskripte; zusätzliche Funktionen können nicht von Nutzern 
+hinzugefügt werden, auch nicht von Operatoren. Falls du zusätzliche Funktionen benötigst, wirst du einen 
+seperaten Bot (z.B. einen "Eggdrop") oder ein Client-Skript einrichten müssen.<br><br>
+
+<h4>Ich bin nichtmehr Besitzer meines Channels, HILFE!</h4>
+Es gibt drei mögliche Ursachen hierfür: 1. Versichere dich, dass du dich bei Q mit dem gleichen Benutzernamen 
+identifiziert hast, mit dem du Besitzerstatus für den Channel besessen hast. 2. Ein anderer Nutzer 
+mit Besitzerstatus für den Channel hat dich unter Umständen entfernt. 3. Ein IRC-Operator hat vielleicht deinen 
+L-Zugang entfernt. Wir empfehlen dir, dass du zuerst mit anderen Besitzern des Channels sprichst; solltest du 
+danach immernoch den Grund nicht erfahren haben, joine den Channel #help und erkläre dein Problem.<br><br>
+
+<h4>L sagt mein Channel sei "suspended", was kann ich machen?</h4>
+Channels werden "suspended" von IRC Operatoren im Falle eines Bruches unserer Netzwerk-Regeln, bzw. falls der 
+Channel konstant eine Quelle von Problemen darstellt. Wir empfehlen dir, dass du zuerst mit anderen Besitzern des 
+Channels sprichst um den Grund für die Suspension zu erfahren. Falls sich über den Grund der Suspension kein 
+Aufschluss ergibt, joine #feds und erkläre dein Problem, bzw. schreibe eine Mail an info@quakenet.org. Sollte 
+sich die Suspension auf ein Missverständnis gründen schreibe eine Mail an info@quakenet.org und erkläre dein 
+Problem.<br><br>
+
+<h4>Unser Channel hat keinen Nutzer mit Besitzerstatus mehr, was nun?</h4>
+Falls aus irgendeinem Grund kein Nutzer mehr Besitzerstatus (+n Flag) haben sollte (siehe auch: CHANLEV Befehl),
+muss ein Nutzer mit +m Flag für den besagten Channel #feds joinen um die Situation zu klären. Falls auch kein Nutzer 
+das +m Flag mehr besitzt, sollte ein +o Nutzer #feds joinen und das Problem erklären. Bitte beachte, dass der 
+Besitzerstatus nicht an +o Nutzer übertragen wird sofern noch +m Nutzer existieren. Sollte besagter +m Nutzer nicht 
+online sein warte und frage ihn später nach dem Besitzerstatus.<br><br>
+
+<h4>Ich kann nicht zu einem Channel hinzugefügt werden / Ich kann meinen Freund nicht zu einem Channel hinzufügen, was jetzt?</h4>
+L hat eine feste, limitierte Anzahl von Nutzern pro Channel wie auch Channels pro Nutzer. Falls die Zugangsliste für einen 
+Channel voll sein sollte, muss zuerst ein anderer Nutzer entfernt werden um einen anderen hinzuzufügen. Falls der Nutzer,
+den du versuchst hinzuzufügen bereits die maximale Anzahl an Channels für seinen L-Zugang besitzt, so muss er zuerst 
+seinen Zugang für einen der Channels aus seiner Zugangsliste entfernen.<br><br>
+
+<h4>Jemand hat mich zu vielen Channels hinzugefügt die ich garnicht kenne, was mache ich mit den unerwünschten Flags?</h4>
+Bitte lese die Beschreibung für das "CHANLEV" Kommando für nähere Informationen zum Thema "Entfernen von Flags"<br><br>
+
+<h4>Ich habe ein Problem oder eine Frage welche nicht hier beantwortet wird, was kann ich machen?</h4>
+Falls du keine Lösung für dein Problem in diesem Handbuch finden solltest oder falls du eine Frage hast die nicht hier 
+beantwortet wurde, zögere nicht und joine #help und lege dein Problem dar oder stelle deine Frage.<br><br>
+  

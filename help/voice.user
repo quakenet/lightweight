@@ -1,0 +1,5 @@
+/msg L VOICE #channel
+Gives you mode +v on the specified channel.
+You need to have the access flag +v for the specified channel for this
+command to work. This command can not be used to set the mode +v for users
+other than yourself.

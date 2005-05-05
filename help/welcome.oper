@@ -1,0 +1,3 @@
+WELCOME #channel [reason]
+Views or sets the welcome message for a channel.
+remove with 'remove' as reason.

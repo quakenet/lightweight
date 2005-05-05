@@ -1,0 +1,3 @@
+HELP [command]
+Tells you information about a specific command. If no command is specified
+then a list of commands available to you is printed.

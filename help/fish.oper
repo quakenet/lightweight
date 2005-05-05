@@ -1,0 +1,4 @@
+FISH #channel [nick]
+Slaps the channel #channel with a cold, wet fish, unless argument
+nick is supplied, where the user "nick" in aforementioned channel
+will be on the receiving end of the fish slap instead.

@@ -1,0 +1,3 @@
+WHOIS [user]
+Tells you users auth name, global auth level, date of last auth and a list
+of channels the user has access to.

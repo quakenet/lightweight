@@ -1,0 +1,3 @@
+SUSPENDLIST pattern
+Searches the suspended channels based on a pattern, use * to list all
+suspended channels.

@@ -1,0 +1,5 @@
+/msg L RECOVER #channel
+Do all neccesary steps, in the right order, to recover
+a lost channel, ie deopall, unbanall and clearchan. You
+need to have the channel flag +m or +n for the channel
+for this command to work.

@@ -1,0 +1,3 @@
+WHOAMI
+Tells you your auth name, global auth level, date of your last auth and a
+list of channels that you have access to.

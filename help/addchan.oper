@@ -1,0 +1,3 @@
+ADDCHAN #channel [owner]
+Adds a channel to L, owner is given +aonm for the channel and protected
+from -n.

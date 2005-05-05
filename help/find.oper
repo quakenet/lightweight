@@ -1,0 +1,11 @@
+FIND [-l num] pattern
+-l num  - list max <num> amounts of lines (20 by default)
+pattern - pattern to search for.
+  
+find searches thru the service logfiles for lines matching
+"pattern". find recognizes '*' or '%' as wildcards in the
+pattern.
+  
+find is a user friendlier interface to GREP. it escapes any
+character in "pattern" that has special meaning to GREP and
+ignores upper/lower case distinctions during comparisons.

@@ -1,0 +1,19 @@
+/msg L CHANLEV #channel [nick] [flags]
+Changes the users access rights for a channel. If no user or flags are
+specified, then the access rights for the entire channel are printed. Use
+nick for online users and #authname for offline users. You need be either
+the owner (+n) or the master (+m) of the channel to change the access
+right for the channel. Only the owner (+n) can set or unset the master 
+flag. If the user has no flags for the channel, the user is added 
+to the channel and if all flags are removed, the user is removed
+aswell. To remove a user, just remove all the flags the user has for the
+channel. Supported flags are: 
+a        auto    Auto-ops or autovoices a user on join to channel
+g        auto    Works only for the +v flag
+m        master  Can set users access rights for channel
+n        owner   Like master but can set masters for channel
+o        op      Has the right for mode +o on channel
+v        voice   Has the right for mode +v on channel
+Example: /msg L chanlev #mychannel
+         /msg L chanlev #mychannel myfriend +ao
+         /msg L chanlev #mychannel #myfriendsauthname +maov

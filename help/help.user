@@ -1,0 +1,5 @@
+/msg L HELP [command]
+Tells you more information about a specific command.
+If no command is specified, then all commands available to you are
+printed.
+Example: /msg L help whoami

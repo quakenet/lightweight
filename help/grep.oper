@@ -1,0 +1,8 @@
+GREP [-ivl num] pattern
+i       - ignore upper/lower case distinctions during comparisons
+v       - invert the sense of matching, to select non-matching lines
+l num   - list max <num> amounts of lines (20 by default)
+pattern - a perl compatible regular expression (PCRE)
+          ie: #channel2|user9|Cleanup or [a-z]{7}\\s[0-9]{2}
+  
+grep searches thru the service logfiles for lines matching "pattern".

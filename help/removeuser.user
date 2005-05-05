@@ -1,0 +1,3 @@
+/msg L REMOVEUSER #channel nick
+Remove a user from a channel. You should use CHANLEV to view/set
+the flags, but this command removes all flags for a user.

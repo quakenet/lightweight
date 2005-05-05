@@ -1,0 +1,9 @@
+To make lightweight you'll need GNU make. (http://www.gnu.org/software/make/)
+
+Additional software may be required on some systems:
+
+PCRE  -	http://www.pcre.org/
+ZLIB  - http://www.gzip.org/zlib/
+MYSQL -	http://www.mysql.org/
+
+Ie. for Debian installs the libraries as well as their respective -dev counterparts.

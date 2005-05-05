@@ -1,0 +1,4 @@
+CHANSTAT #channel
+Displays the channel information for a channel, this information includes
+the date the channel was added and last accessed, founder of the channel,
+possible channel suspension and the operator who added the channel.

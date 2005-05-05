@@ -1,0 +1,3 @@
+CHANNELLIST pattern
+Searches the registered channels matching the pattern. At most 100
+channels are printed.

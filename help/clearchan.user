@@ -1,0 +1,4 @@
+/msg L CLEARCHAN #channel
+Removes all channel modes from channel, usefull if there is +i, +l or +k
+on the channel. You need to have the access flag +o for the specified
+channel for this command to work.

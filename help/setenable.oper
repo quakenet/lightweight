@@ -1,0 +1,3 @@
+SETENABLE <0|1>
+This sets the global enable status to 0 (no user commands)
+or 1 (enable user commands)

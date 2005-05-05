@@ -1,0 +1,2 @@
+NOTICEME <on|off>
+Decides if interaction should be done with NOTICE or PRIVMSG.

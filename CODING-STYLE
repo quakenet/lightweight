@@ -1,0 +1,116 @@
+/*
+ * lightweight coding style guidelines
+ *
+ * Author: Vincent 'Zarjazz' Sweeney (zarjazz@quakenet.org)
+ *
+ */
+
+---
+
+  [1] File Format
+  ---------------
+
+  DO NOT UNDER ANY CIRCUMSTANCES COMMIT FILES IN DOS FORMAT!
+
+
+---
+
+  [2] Source File Layout
+  ----------------------
+
+  All source files (*.c) should contain the following text:
+
+/*******************************************************************************
+ *
+ * lightweight - a minimalistic chanserv for ircu's p10-protocol
+ *
+ * copyright 2002 by Rasmus Have & David Mansell
+ *
+ * $Id: CODING-STYLE,v 1.3 2002/03/17 19:05:26 zarjazz Exp $
+ *
+ *******************************************************************************/
+
+/*
+    This file is part of lightweight.
+
+    lightweight is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    lightweight is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with lightweight; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+#include <lightweight.h>
+    .
+    .
+  <BODY>
+    .
+    .
+
+---
+
+  [3] Header File Layout
+  ----------------------
+
+  All header files (*.h) should contain the following text (replacing <FILENAME>
+  with the name of the header eg ACCOUNTSDB):
+
+/*
+    This file is part of lightweight.
+
+    lightweight is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    lightweight is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with lightweight; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+/* $Id: CODING-STYLE,v 1.3 2002/03/17 19:05:26 zarjazz Exp $ */
+
+#ifndef __<FILENAME>_H
+#define __<FILENAME>_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+    .
+    .
+  <BODY>
+    .
+    .
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __<FILENAME>_H */
+
+
+---
+
+  [4] Including Header Files
+  --------------------------
+
+  No header file should include any other header file (with the exception of 'lightweight.h')
+
+  Any global / common used system header files should be placed in 'lightweight.h'
+
+  Always include header files using #include <file.h> NOT #include "file.h". This makes a
+  reordering of the file structure layout at a later date easier.
+
+
