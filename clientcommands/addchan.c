@@ -85,6 +85,10 @@ void doaddchan(struct user *user, char *tail)
       NoticeToUser(user, "I couldn't find the user to notify.  Use either #authname or nick.");
       return;
     }
+    if (!(msguseracct->currentuser)) {
+      NoticeToUser(user, "That user is not online, adding the channel anyway.");
+      msguseracct=NULL;
+    }
   }
 
   if (GetChannelPointer(channel) != NULL) {
