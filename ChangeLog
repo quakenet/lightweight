@@ -1,4 +1,13 @@
 
+2005-11-20  ben  <ben@quakenet.org>
+
+	* dblist.c, lightweight.h, clientcommands/changelev.c,
+	clientcommands/cleanupdb.c:
+	- Removes channels (from the database) that have been suspended for more than 365 days.
+	- Checks a valid auth level is given when using CHANGELEV (previously no figure given would set the auth level to 0).
+	- Prevents users from viewing other user's auth levels. (WHOIS)
+	- Prevents users from viewing their own authlevel if they are level 1. (WHOAMI)
+
 2005-01-08  froo  <froo@quakenet.org>
 
 	* clientcommands/cleanupdb.c:
