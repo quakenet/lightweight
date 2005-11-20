@@ -92,7 +92,8 @@ void GetWhois(struct user *usr_ptr, char *target)
 void WhoAmI(struct user *usr_ptr)
 {
   NoticeToUser(usr_ptr, "You are authed as %s", usr_ptr->authedas->authname);
-  NoticeToUser(usr_ptr, "Global auth level: %d", usr_ptr->authedas->authlevel);
+  if (1 < usr_ptr->authedas->authlevel)
+    NoticeToUser(usr_ptr, "Global auth level: %d", usr_ptr->authedas->authlevel);
   PrintUInfo(usr_ptr, usr_ptr->authedas);
 }
 
@@ -107,7 +108,8 @@ void WhoIsUser(struct user *usr_ptr, char *target)
     NoticeToUser(usr_ptr, "User %s is not authed", tmp_ptr->nick);
   else {
     NoticeToUser(usr_ptr, "%s is authed as %s.", tmp_ptr->nick, tmp_ptr->authedas->authname);
-    NoticeToUser(usr_ptr, "%s has global auth level %d.", tmp_ptr->nick, tmp_ptr->authedas->authlevel);
+    if (10 < usr_ptr->authedas->authlevel)
+      NoticeToUser(usr_ptr, "%s has global auth level %d.", tmp_ptr->nick, tmp_ptr->authedas->authlevel);   
     NoticeToUser(usr_ptr, "Last auth: %s", ctime(&tmp_ptr->authedas->lastauth));
     if (10 <= usr_ptr->authedas->authlevel)
       PrintUInfo(usr_ptr, tmp_ptr->authedas);
@@ -142,7 +144,8 @@ void WhoIsAccount(struct user *usr_ptr, char *target)
       NoticeToUser(usr_ptr, "%s currently authed as %s: %s", (i > 1 ? "These users are" : "This user is"),
                    tmp_ptr->authname, tmp);
     }
-    NoticeToUser(usr_ptr, "%s has global authlevel %d", tmp_ptr->authname, tmp_ptr->authlevel);
+    if (10 < usr_ptr->authedas->authlevel)
+      NoticeToUser(usr_ptr, "%s has global authlevel %d", tmp_ptr->authname, tmp_ptr->authlevel);   
     NoticeToUser(usr_ptr, "Last auth: %s", ctime(&tmp_ptr->lastauth));
     if (usr_ptr->authedas == tmp_ptr)
       PrintUInfo(usr_ptr, tmp_ptr);

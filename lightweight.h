@@ -54,6 +54,9 @@ extern "C" {
 /* number of days before expiring unused channels */
 #define DAYS_BEFORE_EXPIRE      20
 
+/* number of days before removing suspended channels */
+#define SUSPEND_EXPIRY_TIME     365
+
 /* Internal defines. */
 
 /* Size of the buffer that we read into from our serverfd. */
