@@ -108,6 +108,10 @@ void WhoIsUser(struct user *usr_ptr, char *target)
     NoticeToUser(usr_ptr, "User %s is not authed", tmp_ptr->nick);
   else {
     NoticeToUser(usr_ptr, "%s is authed as %s.", tmp_ptr->nick, tmp_ptr->authedas->authname);
+    if (10 <= tmp_ptr->authedas->authlevel)
+      NoticeToUser(usr_ptr, "%s is QuakeNet Staff.", tmp_ptr->nick);
+    if (250 <= tmp_ptr->authedas->authlevel)
+      NoticeToUser(usr_ptr, "%s is an IRC Operator.", tmp_ptr->nick);
     if (10 < usr_ptr->authedas->authlevel)
       NoticeToUser(usr_ptr, "%s has global auth level %d.", tmp_ptr->nick, tmp_ptr->authedas->authlevel);   
     NoticeToUser(usr_ptr, "Last auth: %s", ctime(&tmp_ptr->authedas->lastauth));
@@ -144,6 +148,10 @@ void WhoIsAccount(struct user *usr_ptr, char *target)
       NoticeToUser(usr_ptr, "%s currently authed as %s: %s", (i > 1 ? "These users are" : "This user is"),
                    tmp_ptr->authname, tmp);
     }
+    if (10 <= tmp_ptr->authlevel)
+      NoticeToUser(usr_ptr, "%s is QuakeNet Staff.", tmp_ptr);
+    if (250 <= tmp_ptr->authlevel)
+      NoticeToUser(usr_ptr, "%s is an IRC Operator.", tmp_ptr);
     if (10 < usr_ptr->authedas->authlevel)
       NoticeToUser(usr_ptr, "%s has global authlevel %d", tmp_ptr->authname, tmp_ptr->authlevel);   
     NoticeToUser(usr_ptr, "Last auth: %s", ctime(&tmp_ptr->lastauth));

@@ -71,8 +71,8 @@ void dochangelev(struct user *user, char *tail)
     return;
   }
 
-  if (newlevel < 0 || newlevel > 255) {
-    NoticeToUser(user, "That level is out of range.  Valid levels are between 0 and 255.");
+  if (newlevel < 1 || newlevel > 255) {
+    NoticeToUser(user, "That level is out of range.  Valid levels are between 1 and 255.");
     return;
   }
 
