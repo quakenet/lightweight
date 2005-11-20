@@ -71,11 +71,6 @@ void dochangelev(struct user *user, char *tail)
     return;
   }
 
-  if (newlevel == NULL) {
-    NoticeToUser(user, "You didn't specify a new auth level.");
-    return;
-  }
-
   if (newlevel < 0 || newlevel > 255) {
     NoticeToUser(user, "That level is out of range.  Valid levels are between 0 and 255.");
     return;
