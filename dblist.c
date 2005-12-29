@@ -250,7 +250,9 @@ void PrintChanlev(struct user *usr_ptr, char *channame, char *target)
   else {
     /* Check if they specified a user.  If not, it's just a complete listing */
     if (NULL == target) {
-      NoticeToUser(usr_ptr, "Users for channel %s", chn_ptr->channelname);
+      if (10 <= usr_ptr->authedas->authlevel) 
+        NoticeToUser(usr_ptr, "Founder           : %s", (chn_ptr->founder == NULL ? "???" : chn_ptr->founder->authname));
+      NoticeToUser(usr_ptr, "Users for channel : %s", chn_ptr->channelname);
       NoticeToUser(usr_ptr, "Authname         Access flags");
       NoticeToUser(usr_ptr, "-----------------------------");
       for (i = 0; i < USERSPERCHANNEL; i++) {
@@ -363,6 +365,11 @@ void ChangeChanlev(struct user *usr_ptr, char *channame, char *target, char *fla
     if (strlen(flags))
       if ('-' == *flags && (NULL == strchr(flags, '+')))
         goto UserSelfSkip;
+
+  if (strlen(act_ptr->authname) < 2) {
+    NoticeToUser(usr_ptr, "You cannot give QuakeNet services a chanlev.");
+    return;
+  }   
 
   if (!IsAdmin(usr_ptr)
       && (!(GetChannelFlags(usr_ptr->authedas, chn_ptr) & (CFLAG_MASTER | CFLAG_OWNER)))) {

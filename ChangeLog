@@ -1,3 +1,12 @@
+2005-12-29  ben  <ben@quakenet.org>
+
+	* clientcommands/requestowner.c, clientcommands/chanstat.c
+	clientcommands/cleanupdb.c, dblist.c:
+	- Updates 'founder' if no original founder is set
+	- Prevents users from adding network services to the L chanlev
+	- Prevents the logging of the chanstat command
+	- Change *option++; to option++; in the cleanup module
+	- Show channel founder to staff/opers when using the chanlev command
 
 2005-11-20  ben  <ben@quakenet.org>
 

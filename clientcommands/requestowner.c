@@ -99,6 +99,10 @@ void dorequestowner(struct user *user, char *tail) {
     break;
   }
 
+  if (chanptr->founder == NULL) { /* eek! no founder, lets set it to our new owner */
+    chanptr->founder = user->authedas;
+  }
+
   SetUserChannelFlags(user->authedas, chanptr, "+n");
   NoticeToUser(user, "You have been given ownership of %s.",channel);
   Log("Requestowner: %s (%s) was given ownership of %s",user->nick,user->authedas->authname,channel);

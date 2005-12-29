@@ -82,5 +82,7 @@ void dochanstat(struct user *user, char *tail)
     NoticeToUser(user, "Suspend reason : %s", chan->suspendreason);
   }
   NoticeToUser(user, "InviteOnly     : %s", IsInviteOnly(chan) ? "Yes" : "No");
+#ifdef CHANSTAT_LOG
   Log("Chanstat: %s (%s) requested chanstat for %s", user->nick, user->authedas->authname, channel);
+#endif
 }

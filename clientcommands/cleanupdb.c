@@ -139,7 +139,7 @@ void docleanupdb(struct user *usr_ptr, char *tail)
               NoticeToUser(usr_ptr, "Usage: cleanupdb [-nv]");
               return;
       }
-      *option++;
+      option++;
     }
   }
 
