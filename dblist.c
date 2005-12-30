@@ -366,11 +366,6 @@ void ChangeChanlev(struct user *usr_ptr, char *channame, char *target, char *fla
       if ('-' == *flags && (NULL == strchr(flags, '+')))
         goto UserSelfSkip;
 
-  if (strlen(act_ptr->authname) < 2) {
-    NoticeToUser(usr_ptr, "You cannot give QuakeNet services a chanlev.");
-    return;
-  }   
-
   if (!IsAdmin(usr_ptr)
       && (!(GetChannelFlags(usr_ptr->authedas, chn_ptr) & (CFLAG_MASTER | CFLAG_OWNER)))) {
     NoticeToUser(usr_ptr, "You're not the owner or a master of %s.", chn_ptr->channelname);
@@ -381,6 +376,12 @@ void ChangeChanlev(struct user *usr_ptr, char *channame, char *target, char *fla
     NoticeToUser(usr_ptr, "Unknown user %s.", target);
     return;
   }
+
+  if (strlen(act_ptr->authname) < 2) {
+    NoticeToUser(usr_ptr, "You cannot give QuakeNet services a chanlev.");
+    return;
+  }
+
   if (-1 == GetUserChannelIndex(chn_ptr, act_ptr)) {
     if (NULL == AddChannelToAccount(act_ptr, chn_ptr)) {
       /* User not known and couldn't add either... */
