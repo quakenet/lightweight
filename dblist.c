@@ -471,8 +471,8 @@ UserSelfSkip:                  /* if the user wants to change his own modes, onl
     }
   }
 
-  Log("ChangeChanlev: %s (%s) changed flags (%s) for %s on %s", usr_ptr->nick, usr_ptr->authedas->authname, flags,
-      target, channame);
+  Log("ChangeChanlev: %s (%s) changed flags (%s) for %s (%s) on %s", usr_ptr->nick, 
+    usr_ptr->authedas->authname, flags, target, FindAccount(target), channame);
   NoticeToUser(usr_ptr, "Done.");
 }
 
