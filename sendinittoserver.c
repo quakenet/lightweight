@@ -70,7 +70,7 @@ int SendInitToServer(void)
   SendLine(buf);
 
   /* Send our nick string */
-  sprintf(buf, "%s N %s 1 %d TheLBot %s +odk B]AAAB %sAAA :%s\r\n", my_numeric, my_nick, starttime, my_servername,
+  sprintf(buf, "%s N %s 1 %d TheLBot %s +odkr L B]AAAB %sAAA :%s\r\n", my_numeric, my_nick, starttime, my_servername,
           my_numeric, my_description);
   SendLine(buf);
 
