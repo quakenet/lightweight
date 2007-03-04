@@ -141,6 +141,14 @@ int ParseLine(void)
       UserNickCreation(numeric, nick, isoper);
 
       if (account != NULL) {
+        char *accountts;
+        if((accountts=strchr(account,':'))){
+          char *accountid;
+          *accountts++='\0';
+          if((accountid=strchr(accountts,':'))){
+            *accountid++='\0';
+          }
+        } 
         /* Account was authed: so call the auth routine now... */
         AuthUser(numeric, account);
       }
@@ -158,11 +166,18 @@ int ParseLine(void)
     /* Auth the user */
     /* AD AC [hAAA splidge */
 
-    char *numeric, *account;
+    char *numeric, *account, *accountts, *accountid;
 
     numeric = tail;
     account = SeperateWord(tail);
     tail = SeperateWord(tail);
+
+    if((accountts=strchr(account,' '))){
+      *accountts++='\0';
+      if((accountid=strchr(accountts,' '))){
+        *accountid++='\0';
+      }
+    }
 
     AuthUser(numeric, account);
   } else if (command[0] == 'Q' && command[1] == '\0') {
