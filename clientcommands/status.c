@@ -115,31 +115,31 @@ void dostatus(struct user *user, char *tail)
     }
   }
 
-  NoticeToUser(user, "Memory usage information:");
-
   /* Open the status file. */
   sprintf(filename, "/proc/%d/status", getpid());
-  statusfile = fopen(filename, "r");
-  /* Read the lines in it one at a time. */
-  while (!feof(statusfile)) {
-    /* If we havent reached EOF yet, we should read a line and check it out. */
-    fgets(currentline, 1024, statusfile);
-    /* Check if the line we just read was totally cool. */
-    if (strncmp(currentline, "VmSize:", 7) == 0 || strncmp(currentline, "VmRSS:", 6) == 0) {
-      /* If it is, throw it at the user. */
-      /* BUG: the currentline contains a newline in the end, it should be stripped. */
-      /* BUG2: line contains embedded TAB's */
-      /* FIX: Code monkey to the rescue! */
-      for (chptr = currentline; *chptr; chptr++) {
-        if (*chptr == '\n' || *chptr == '\r')
-          *chptr = '\0';
-        if (*chptr == '\t')
-          *chptr = ' ';
-	  }
-      NoticeToUser(user, "  %s", currentline);
+  if ((statusfile = fopen(filename, "r")) != NULL) {
+    NoticeToUser(user, "Memory usage information:");
+    /* Read the lines in it one at a time. */
+    while (!feof(statusfile)) {
+      /* If we havent reached EOF yet, we should read a line and check it out. */
+      fgets(currentline, 1024, statusfile);
+      /* Check if the line we just read was totally cool. */
+      if (strncmp(currentline, "VmSize:", 7) == 0 || strncmp(currentline, "VmRSS:", 6) == 0) {
+        /* If it is, throw it at the user. */
+        /* BUG: the currentline contains a newline in the end, it should be stripped. */
+        /* BUG2: line contains embedded TAB's */
+        /* FIX: Code monkey to the rescue! */
+        for (chptr = currentline; *chptr; chptr++) {
+          if (*chptr == '\n' || *chptr == '\r')
+              *chptr = '\0';
+            if (*chptr == '\t')
+            *chptr = ' ';
+  	  }
+        NoticeToUser(user, "  %s", currentline);
+      }
     }
+    fclose(statusfile);
   }
-  fclose(statusfile);
 
   NoticeToUser(user, "  Malloced:%7i kB", (int) memoryused / 1024);
 }
