@@ -36,7 +36,7 @@ extern "C" {
 #define CONFIGFILE "lightweight.conf"
 
 /* define this for debugging output */
-#define DEBUG
+#undef DEBUG
 
 /* define this for CM support */
 #define HAVE_CLEARMODE
@@ -52,10 +52,10 @@ extern "C" {
 #undef AUTOMODES_IN_BURST
 
 /* number of days before expiring unused channels */
-#define DAYS_BEFORE_EXPIRE      20
+#define DAYS_BEFORE_EXPIRE      40
 
 /* number of days before removing suspended channels */
-#define SUSPEND_EXPIRY_TIME     365
+#define SUSPEND_EXPIRY_TIME     40
 
 /* Internal defines. */
 
