@@ -53,7 +53,7 @@ void dosuspendlist(struct user *usr_ptr, char *ptrn)
 
   if (NULL == ptrn) {
     NoticeToUser(usr_ptr, "Usage: suspendlist pattern");
-    NoticeToUser(usr_ptr, "where  pattern is the searchpattern to match the channel name ");
+    NoticeToUser(usr_ptr, "where  pattern is the searchpattern to match the channel name against");
     return;
   }
   for (i = 0; i < HASHMAX; i++) {

@@ -62,7 +62,7 @@ void dowelcome(struct user *usr_ptr, char *tail)
   }
 
   if (channel[0] != '#') {
-    NoticeToUser(usr_ptr, "The channelname must start with #.");
+    NoticeToUser(usr_ptr, "The channel name must start with #.");
     return;
   }
 

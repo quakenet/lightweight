@@ -48,8 +48,8 @@ void ListCommands(struct user *usr_ptr)
   NoticeToUser(usr_ptr, "adduser      Add a user to a channel");
   NoticeToUser(usr_ptr, "removeuser   Remove a user from a channel");
   NoticeToUser(usr_ptr, "showcommands Lists commands available to you");
-  NoticeToUser(usr_ptr, "op           Gives you mode +o for channel");
-  NoticeToUser(usr_ptr, "voice        Gives you mode +v for channel");
+  NoticeToUser(usr_ptr, "op           Gives you mode +o on a channel");
+  NoticeToUser(usr_ptr, "voice        Gives you mode +v on a channel");
 #ifdef SIT_ON_CHANNELS
   NoticeToUser(usr_ptr, "invite       Invites you to a channel");
   NoticeToUser(usr_ptr, "setinvite    Makes L enforce +i on a channel");
@@ -59,9 +59,9 @@ void ListCommands(struct user *usr_ptr)
   NoticeToUser(usr_ptr, "deopall      Deops every user on channel");
   NoticeToUser(usr_ptr, "unbanall     Removes all bans from channel");
   NoticeToUser(usr_ptr, "clearchan    Clears all channel modes");
-  NoticeToUser(usr_ptr, "version      Tells the current L version");
+  NoticeToUser(usr_ptr, "version      Responds with the current L version");
   NoticeToUser(usr_ptr, "welcome      Channel welcome message");
-  NoticeToUser(usr_ptr, "requestowner Request ownership of a channel on which there are no owners.");
+  NoticeToUser(usr_ptr, "requestowner Request ownership of a channel on which there are no owners");
   if (10 > usr_ptr->authedas->authlevel)
     return;
   NoticeToUser(usr_ptr, "suspendlist  Lists suspended channels");
@@ -80,9 +80,9 @@ void ListCommands(struct user *usr_ptr)
   NoticeToUser(usr_ptr, "userlist     Lists online users");
   NoticeToUser(usr_ptr, "chanstat     Displays information about a channel");
   NoticeToUser(usr_ptr, "grep         Search the service logfiles");
-  NoticeToUser(usr_ptr, "status       Tells the service status");
-  NoticeToUser(usr_ptr, "noticeme     Sets if the service sends you its replys as /msg or as /notice");
-  NoticeToUser(usr_ptr, "reauth       Tells the service to reauth with %s", o_nick);
+  NoticeToUser(usr_ptr, "status       Prints the service status");
+  NoticeToUser(usr_ptr, "noticeme     Sets if the service sends you its replies as /msg or as /notice");
+  NoticeToUser(usr_ptr, "reauth       Makes the service reauth with %s", o_nick);
   if (255 > usr_ptr->authedas->authlevel)
     return;
   NoticeToUser(usr_ptr, "setenable    Enables or disables all user commands");

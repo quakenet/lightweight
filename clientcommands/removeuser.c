@@ -67,7 +67,7 @@ void doremoveuser(struct user *user, char *tail)
 
   modes = SeperateWord(targetuser);
   if (targetuser == NULL) {
-    NoticeToUser(user, "You will need to specifiy a user to be removed.");
+    NoticeToUser(user, "You will need to specify a user to be removed.");
     return;
   }
 

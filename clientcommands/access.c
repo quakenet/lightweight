@@ -77,14 +77,14 @@ void doaccess(struct user *user, char *tail)
     if (tmp_uptr->authedas != NULL) {
       tmp_aptr = tmp_uptr->authedas;
     } else {
-      NoticeToUser(user, "User isnt authed and hence not known on any channels.");
+      NoticeToUser(user, "User isn't authed and hence not known on any channels.");
       return;
     }
   }
 
   if (-1 == GetUserChannelIndex(chanptr, tmp_aptr)) {
     /* User isnt known on the channel. */
-    NoticeToUser(user, "User %s isnt known on %s.", targetuser, channel);
+    NoticeToUser(user, "User %s isn't known on %s.", targetuser, channel);
   } else {
     NoticeToUser(user, "User %s is known on %s.", targetuser, channel);
     /* Perhaps say what flags the user has? */

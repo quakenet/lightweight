@@ -166,7 +166,7 @@ void dogrep(struct user *user, char *tail)
 
   hints = pcre_study(cpattern, 0, &error);
   if (NULL != error) {
-    NoticeToUser(user, "error while studing regex: %s", error);
+    NoticeToUser(user, "error while studying regex: %s", error);
     return;
   }
 

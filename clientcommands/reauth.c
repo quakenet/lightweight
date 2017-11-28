@@ -50,7 +50,7 @@ void doreauth(struct user *usr_ptr, char *tail)
   sprintf(buf, "%sAAA P %s :auth %s %s\r\n", my_numeric, o_userserver, o_login, o_pass);
   SendLine(buf);
 
-  Log("Suspend: %s (%s) requested reauth to O", usr_ptr->nick, usr_ptr->authedas->authname);
+  Log("Suspend: %s (%s) requested reauth to %s", usr_ptr->nick, usr_ptr->authedas->authname, o_nick);
   NoticeToUser(usr_ptr, "Done.");
 #else
   NoticeToUser(usr_ptr, "%s is not activated in this build of %s.", o_nick, my_nick);
