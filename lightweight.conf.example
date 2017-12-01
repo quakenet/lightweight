@@ -29,6 +29,9 @@ my_numeric=[l
 my_servername=windl.splidge.netsplit.net
 my_description=Drink Milk. Now fatfree.
 
+# Network information.
+network_name=QuakeNet
+
 # for O operations.
 o_nick=O
 o_login=L

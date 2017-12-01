@@ -67,6 +67,11 @@ int LoadCfg(char *configfile)
       continue;
     }
 
+    if (!strncmp(kw, "network_name", strlen("network_name"))) {
+      a_strcpy(network_name, v, sizeof(network_name));
+      continue;
+    }
+
     if (!strncmp(kw, "server_host", strlen("server_host"))) {
       a_strcpy(server_host, v, sizeof(server_host));
       continue;
@@ -129,6 +134,7 @@ int LoadCfg(char *configfile)
   printf("my_numeric = [%s]\n", my_numeric);
   printf("my_servername = [%s]\n", my_servername);
   printf("my_description = [%s]\n", my_description);
+  printf("network_name = [%s]\n", network_name);
 #ifndef HORRIBLE_DEOPALL_HACK
   printf("o_nick = [%s]\n", o_nick);
   printf("o_login = [%s]\n", o_login);

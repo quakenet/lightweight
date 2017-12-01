@@ -57,6 +57,7 @@ char my_nick[NICKLEN] = "L";
 char my_numeric[32] = "[l";
 char my_servername[128] = "change.this.in.lightweight.conf";
 char my_description[256] = "Drink Milk. Now fatfree.";
+char network_name[32] = "QuakeNet";
 
 #ifndef HORRIBLE_DEOPALL_HACK
 char o_nick[NICKLEN] = "O";

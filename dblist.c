@@ -34,6 +34,7 @@
 #include <channelsdb.h>         /* TEMP */
 #include <usersdb.h>
 #include <lightweight.h>
+#include <globalexterns.h>
 #include <dblist.h>
 
                                                                   /* TEMP */ extern void NoticeToUser(struct user *, char *, ...);
@@ -109,7 +110,7 @@ void WhoIsUser(struct user *usr_ptr, char *target)
   else {
     NoticeToUser(usr_ptr, "%s is authed as %s.", tmp_ptr->nick, tmp_ptr->authedas->authname);
     if (10 <= tmp_ptr->authedas->authlevel)
-      NoticeToUser(usr_ptr, "%s is QuakeNet Staff.", tmp_ptr->nick);
+      NoticeToUser(usr_ptr, "%s is %s Staff.", tmp_ptr->nick, network_name);
     if (250 <= tmp_ptr->authedas->authlevel)
       NoticeToUser(usr_ptr, "%s is an IRC Operator.", tmp_ptr->nick);
     if (10 < usr_ptr->authedas->authlevel)
@@ -149,7 +150,7 @@ void WhoIsAccount(struct user *usr_ptr, char *target)
                    tmp_ptr->authname, tmp);
     }
     if (10 <= tmp_ptr->authlevel)
-      NoticeToUser(usr_ptr, "%s is QuakeNet Staff.", tmp_ptr);
+      NoticeToUser(usr_ptr, "%s is %s Staff.", tmp_ptr, network_name);
     if (250 <= tmp_ptr->authlevel)
       NoticeToUser(usr_ptr, "%s is an IRC Operator.", tmp_ptr);
     if (10 < usr_ptr->authedas->authlevel)
@@ -378,7 +379,7 @@ void ChangeChanlev(struct user *usr_ptr, char *channame, char *target, char *fla
   }
 
   if (strlen(act_ptr->authname) < 2) {
-    NoticeToUser(usr_ptr, "You cannot give QuakeNet services a chanlev.");
+    NoticeToUser(usr_ptr, "You cannot give %s services a chanlev.", network_name);
     return;
   }
 
