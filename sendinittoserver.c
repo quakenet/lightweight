@@ -65,7 +65,7 @@ int SendInitToServer(void)
   sprintf(buf, "PASS :%s\r\n", server_pass);
   SendLine(buf);
   /* Send server-string. */
-  sprintf(buf, "SERVER %s 1 %d %d J10 %sAAD +s :%s\r\n", my_servername, starttime, starttime, my_numeric,
+  sprintf(buf, "SERVER %s 1 %d %d J10 %sAAD +s6 :%s\r\n", my_servername, starttime, starttime, my_numeric,
           my_description);
   SendLine(buf);
 
