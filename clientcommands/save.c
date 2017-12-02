@@ -44,7 +44,7 @@ void dosave(struct user *user, char *tail)
   FlushLogs();
   if (SaveDBToDisk()) {
     Log("Save: %s (%s) requested save. Save failed.", user->nick, user->authedas->authname);
-    NoticeToUser(user, "Error saving database.. HELP!");
+    NoticeToUser(user, "Error saving database... HELP!");
   } else {
     Log("Save: %s (%s) requested save. Save succeeded.", user->nick, user->authedas->authname);
     NoticeToUser(user, "Done. Save seemed OK.");

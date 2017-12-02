@@ -54,7 +54,7 @@ void douserlist(struct user *usr_ptr, char *ptrn)
 
   if (NULL == ptrn) {
     NoticeToUser(usr_ptr, "Usage: userlist pattern");
-    NoticeToUser(usr_ptr, "Where  pattern is the pattern to search for");
+    NoticeToUser(usr_ptr, "where  pattern is the pattern to search for");
     return;
   }
   for (i = 0; i < HASHMAX; i++) {

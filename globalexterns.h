@@ -52,6 +52,7 @@ extern "C" {
   extern char my_numeric[32];
   extern char my_servername[128];
   extern char my_description[256];
+  extern char network_name[32];
 
 #ifndef HORRIBLE_DEOPALL_HACK
   extern char o_nick[NICKLEN];

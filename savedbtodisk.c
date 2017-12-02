@@ -83,7 +83,7 @@ int SaveDBToDisk(void)
    * so put a NUL in here to save doing it 237964023984092 times later
    */
 
-  chanflags[9] = '\0';
+  chanflags[8] = '\0';
 
   for (i = 0; i < HASHMAX; i++) {
     chan = channelhashtable[i];

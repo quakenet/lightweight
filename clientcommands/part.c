@@ -59,7 +59,7 @@ void dopart(struct user *user, char *tail)
   }
 
   if (channel[0] != '#') {
-    NoticeToUser(user, "The channelname must start with #.");
+    NoticeToUser(user, "The channel name must start with #.");
     return;
   }
 

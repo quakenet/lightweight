@@ -146,7 +146,7 @@ char *ChangeAuthName(struct account *act_ptr, char *newauthname)
 
   if (authname_len <= 0 || authname_len > NICKLEN)
     return NULL;                /* is the name good ? */
-  if (NULL != GetAccountByAuthName)
+  if (NULL != GetAccountByAuthName(newauthname))
     return NULL;                /* is it reserved ? */
   memcpy(act_ptr->authname, newauthname, authname_len + 1); /* no, let's use it */
   return newauthname;           /* success */

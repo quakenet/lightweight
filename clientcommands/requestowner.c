@@ -93,7 +93,7 @@ void dorequestowner(struct user *user, char *tail) {
       return;
     case RO_MASTEREXISTS:
       if (!(flags & CFLAG_MASTER)) {
-        NoticeToUser(user,"There is a master present on %s, due to this you need the +m CHANLEV to request ownership.",channel);
+        NoticeToUser(user,"There is a master present on %s. Thus, you need the +m CHANLEV to request ownership.",channel);
         return;
       }
     break;

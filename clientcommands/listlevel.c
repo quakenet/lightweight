@@ -62,7 +62,7 @@ void dolistlevel(struct user *user, char *tail)
 
   if (NULL == levelstring) {
     NoticeToUser(user, "Usage: listlevel authlevel [upto]");
-    NoticeToUser(user, "List all users with a auth level of \"authlevel\", or between \"authlevel\" and \"upto\" (if specified)");
+    NoticeToUser(user, "List all users with a auth level of \"authlevel\" or between \"authlevel\" and \"upto\" (if specified)");
     return;
   }
 

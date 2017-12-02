@@ -55,13 +55,13 @@ struct reggedchannel *AddChannel(char *chn_name, struct account *owner_act, char
 
   if (NULL != GetChannelPointer(chn_name)) {
     if (user)
-      NoticeToUser(user, "Error adding channel: The channel %s seems to have L allready.", chn_name);
+      NoticeToUser(user, "Error adding channel: The channel %s seems to have L already.", chn_name);
     return NULL;                /* make sure the channels isn't there already */
   }
   chname_len = strlen(chn_name);
   if (29 < chname_len) {
     if (user)
-      NoticeToUser(user, "Error adding channel: channelname too long.");
+      NoticeToUser(user, "Error adding channel: channel name too long.");
     return NULL;                /* is the channel name too long ? */
   }
   tmp_ptr = DBMallocChannel();  /* get memory for the channel */
